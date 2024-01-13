@@ -1,9 +1,9 @@
 extends Node2D
 class_name HealthComponent
 
-@onready var timer = $Timer
+@onready var timer = $HealthBar/Timer
 @onready var health_bar = $HealthBar
-@onready var damage_bar = $DamageBar
+@onready var damage_bar = $HealthBar/DamageBar
 
 @export var MAX_HEALTH = 10
 var health: float : set = _set_health
