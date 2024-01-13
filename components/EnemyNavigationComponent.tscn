@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://uueq0es0funn"]
+
+[ext_resource type="Script" path="res://components/EnemyNavigationComponent.gd" id="1_ng655"]
+
+[node name="EnemyNavigationComponent" type="NavigationAgent2D"]
+script = ExtResource("1_ng655")

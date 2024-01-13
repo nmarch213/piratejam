@@ -1,0 +1,3 @@
+extends NavigationAgent2D
+class_name EnemyNavigationComponent
+

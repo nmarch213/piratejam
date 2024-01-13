@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkthjsnqioj06"]
+[gd_scene load_steps=7 format=3 uid="uid://bkthjsnqioj06"]
 
+[ext_resource type="Script" path="res://tree/MotherTree.gd" id="1_b78f8"]
 [ext_resource type="Texture2D" uid="uid://bdy2mgr3ecejy" path="res://tree/tree.png" id="1_wuvvu"]
 [ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="2_d184v"]
 [ext_resource type="PackedScene" uid="uid://di5pnhypgvcm1" path="res://components/HitboxComponent.tscn" id="3_uy08p"]
@@ -8,7 +9,14 @@
 radius = 6.0
 height = 24.0
 
-[node name="MotherTree" type="Node2D" groups=["Player"]]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c631j"]
+radius = 14.0
+height = 34.0
+
+[node name="MotherTree" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_b78f8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 2
@@ -25,3 +33,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CapsuleShape2D_hkywe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_c631j")
