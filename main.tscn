@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=12 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Texture2D" uid="uid://d0ip76gubctdl" path="res://assets/grass.png" id="3_6vybs"]
 [ext_resource type="PackedScene" uid="uid://bkthjsnqioj06" path="res://tree/MotherTree.tscn" id="3_gu0s8"]
@@ -6,8 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://5cu45j37smxw" path="res://assets/grid_selector.png" id="4_80v71"]
 [ext_resource type="Texture2D" uid="uid://dofe8r266nbd8" path="res://assets/sand.png" id="4_go5rx"]
 [ext_resource type="Script" path="res://TilemMap.gd" id="5_614l4"]
-[ext_resource type="PackedScene" uid="uid://duq3nd4a5fk7e" path="res://towers/sapling/sapling.tscn" id="6_moqds"]
-[ext_resource type="Script" path="res://PathableArea.gd" id="7_7f8ue"]
+[ext_resource type="PackedScene" uid="uid://duq3nd4a5fk7e" path="res://tree/towers/sapling/sapling.tscn" id="6_moqds"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nuel"]
 texture = ExtResource("3_6vybs")
@@ -29,12 +28,6 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_4nuel")
 sources/2 = SubResource("TileSetAtlasSource_a7ufn")
 sources/1 = SubResource("TileSetAtlasSource_jtdvk")
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_o3lu4"]
-vertices = PackedVector2Array(1166, 656, 11, 660, 14, 17, 1172, 17)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1741, 1014, -595, 1015, -593, -304, 1739, -312)])
-source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Main" type="Node2D"]
 
@@ -64,22 +57,17 @@ layer_3/name = "building grid"
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("5_614l4")
 
-[node name="PathableArea" type="NavigationRegion2D" parent="."]
-position = Vector2(681, 374)
-navigation_polygon = SubResource("NavigationPolygon_o3lu4")
-script = ExtResource("7_7f8ue")
+[node name="Sapling5" parent="." instance=ExtResource("6_moqds")]
+position = Vector2(950, 875)
 
-[node name="Sapling5" parent="PathableArea" instance=ExtResource("6_moqds")]
-position = Vector2(269, 501)
+[node name="Sapling4" parent="." instance=ExtResource("6_moqds")]
+position = Vector2(903, 875)
 
-[node name="Sapling4" parent="PathableArea" instance=ExtResource("6_moqds")]
-position = Vector2(222, 501)
+[node name="Sapling3" parent="." instance=ExtResource("6_moqds")]
+position = Vector2(972, 969)
 
-[node name="Sapling3" parent="PathableArea" instance=ExtResource("6_moqds")]
-position = Vector2(291, 595)
+[node name="Sapling2" parent="." instance=ExtResource("6_moqds")]
+position = Vector2(984, 907)
 
-[node name="Sapling2" parent="PathableArea" instance=ExtResource("6_moqds")]
-position = Vector2(303, 533)
-
-[node name="Sapling" parent="PathableArea" instance=ExtResource("6_moqds")]
-position = Vector2(333, 568)
+[node name="Sapling" parent="." instance=ExtResource("6_moqds")]
+position = Vector2(1014, 942)

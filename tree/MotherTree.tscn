@@ -13,7 +13,7 @@ height = 24.0
 radius = 14.0
 height = 34.0
 
-[node name="MotherTree" type="CharacterBody2D" groups=["Player"]]
+[node name="MotherTree" type="StaticBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_b78f8")
@@ -23,7 +23,7 @@ light_mask = 2
 visibility_layer = 2
 texture = ExtResource("1_wuvvu")
 
-[node name="HealthComponent" parent="." instance=ExtResource("2_d184v")]
+[node name="HealthComponent" parent="." groups=["tree"] instance=ExtResource("2_d184v")]
 position = Vector2(-19, -22)
 scale = Vector2(0.16, 0.745)
 
@@ -36,3 +36,8 @@ shape = SubResource("CapsuleShape2D_hkywe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_c631j")
+
+[node name="SunTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="SunTimer" to="." method="_on_sun_timer_timeout"]

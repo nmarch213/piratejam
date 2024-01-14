@@ -31,6 +31,13 @@ func damage(attack: Attack):
 	damage_bar.value = attack.damage
 	if health <= 0:
 		get_parent().queue_free()
+		
+func heal(amount):
+	health = min(health + amount, MAX_HEALTH)
+	health_bar.value = health
+	
+func is_max_health():
+	return health == MAX_HEALTH
 
 func _on_timer_timeout():
 	damage_bar.value = health
