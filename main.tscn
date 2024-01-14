@@ -38,6 +38,9 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Main" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1122, 826)
+
 [node name="MotherTree" parent="." instance=ExtResource("3_gu0s8")]
 position = Vector2(1187, 706)
 scale = Vector2(2, 2)
@@ -61,8 +64,6 @@ layer_3/name = "building grid"
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("5_614l4")
 
-[node name="Spawner" type="Node2D" parent="."]
-
 [node name="PathableArea" type="NavigationRegion2D" parent="."]
 position = Vector2(681, 374)
 navigation_polygon = SubResource("NavigationPolygon_o3lu4")
@@ -82,6 +83,3 @@ position = Vector2(303, 533)
 
 [node name="Sapling" parent="PathableArea" instance=ExtResource("6_moqds")]
 position = Vector2(333, 568)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1122, 826)
