@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=19 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l6jnq"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="2_owgi6"]
@@ -10,6 +10,10 @@
 [ext_resource type="Script" path="res://UIController.gd" id="7_2rcum"]
 [ext_resource type="PackedScene" uid="uid://dtwfw8ksgubyu" path="res://ui/buy_menu/buy_menu.tscn" id="8_rwyyp"]
 [ext_resource type="Script" path="res://BuildingController.gd" id="9_4t46y"]
+[ext_resource type="Texture2D" path="res://assets/bubble.png" id="11_xp85h"]
+[ext_resource type="FontFile" path="res://assets/NovaScript-Regular.ttf" id="12_kfprn"]
+[ext_resource type="Script" path="res://SunlightLabel.gd" id="13_fqykk"]
+[ext_resource type="Texture2D" path="res://assets/sun.png" id="13_ftsqr"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dfxfv"]
 resource_name = "towers"
@@ -80,6 +84,51 @@ script = ExtResource("7_2rcum")
 
 [node name="BuildingController" type="Node2D" parent="."]
 script = ExtResource("9_4t46y")
+
+[node name="MainUI" type="CanvasLayer" parent="."]
+
+[node name="Bubble" type="Sprite2D" parent="MainUI"]
+modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(8, 12)
+scale = Vector2(1.5, 1.688)
+texture = ExtResource("11_xp85h")
+centered = false
+
+[node name="Control" type="Control" parent="MainUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 15.0
+offset_bottom = 60.0
+
+[node name="Sun" type="Sprite2D" parent="MainUI/Control"]
+position = Vector2(18, 18)
+scale = Vector2(2.375, 2.375)
+texture = ExtResource("13_ftsqr")
+
+[node name="SunlightLabel" type="Label" parent="MainUI/Control"]
+layout_mode = 2
+offset_left = 52.0
+offset_top = 3.5
+offset_right = 66.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_kfprn")
+theme_override_font_sizes/font_size = 20
+text = "0"
+vertical_alignment = 1
+script = ExtResource("13_fqykk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainUI"]
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 98.0
+offset_bottom = 60.0
 
 [connection signal="tile_map_clicked" from="TileMap" to="UIController" method="_on_tile_map_tile_map_clicked"]
 [connection signal="id_pressed" from="UIController/BuyMenu" to="BuildingController" method="_on_buy_menu_id_pressed"]
