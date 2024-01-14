@@ -40,6 +40,14 @@ position = Vector2(-10, -23)
 scale = Vector2(0.105, 0.705)
 
 [node name="EnemyNavigationComponent" type="NavigationAgent2D" parent="."]
+path_max_distance = 20000.0
+navigation_layers = 3
+avoidance_enabled = true
+radius = 20.0
+max_neighbors = 200
+avoidance_layers = 3
+avoidance_mask = 3
+debug_enabled = true
 script = ExtResource("5_wdioc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

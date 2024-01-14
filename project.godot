@@ -14,3 +14,9 @@ config/name="piratejam"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[navigation]
+
+3d/default_cell_size=1.0
+3d/default_cell_height=1.0
+3d/default_edge_connection_margin=1.0
