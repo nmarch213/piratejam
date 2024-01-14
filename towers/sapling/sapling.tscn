@@ -10,10 +10,11 @@ size = Vector2(29, 31)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_do137")
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-radius = 40.7
-avoidance_layers = 3
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_bchn0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.5, 0.699999)
+scale = Vector2(0.994, 1)
+polygon = PackedVector2Array(-14.5875, 16.3, 14.5875, 16.3, 14.5875, -15.7, -14.5875, -15.7)

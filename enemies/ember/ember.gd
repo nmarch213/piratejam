@@ -8,9 +8,12 @@ extends Enemy
 func _ready() -> void:
 	nav_agent.connect("velocity_computed", move)
 
-func _physics_process(_delta: float) -> void:
-	var dir = to_local(nav_agent.get_next_path_position()).normalized()
-	velocity = dir * speed
+func _physics_process(delta: float) -> void:
+	var target_global_position = nav_agent.get_next_path_position()
+	var dir := global_position.direction_to(target_global_position)
+	var desired_velocity = dir * speed
+	var steering = (desired_velocity - velocity) * delta * 4.0
+	velocity = velocity + steering
 	nav_agent.set_velocity(velocity)
 
 func move(newVelocity: Vector2) -> void:
