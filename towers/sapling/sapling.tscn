@@ -11,7 +11,7 @@ size = Vector2(29, 31)
 texture = ExtResource("1_do137")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-radius = 23.26
+radius = 40.7
 avoidance_layers = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
