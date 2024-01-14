@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=14 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Texture2D" uid="uid://d0ip76gubctdl" path="res://assets/grass.png" id="3_6vybs"]
 [ext_resource type="PackedScene" uid="uid://bkthjsnqioj06" path="res://tree/MotherTree.tscn" id="3_gu0s8"]
 [ext_resource type="PackedScene" uid="uid://18pm78o3k5ov" path="res://enemies/ember/ember.tscn" id="4_7yun8"]
 [ext_resource type="Texture2D" uid="uid://5cu45j37smxw" path="res://assets/grid_selector.png" id="4_80v71"]
 [ext_resource type="Texture2D" uid="uid://dofe8r266nbd8" path="res://assets/sand.png" id="4_go5rx"]
-[ext_resource type="PackedScene" uid="uid://bgc825oocaary" path="res://ui/ui.tscn" id="5_4r2n0"]
 [ext_resource type="Script" path="res://TilemMap.gd" id="5_614l4"]
 [ext_resource type="PackedScene" uid="uid://duq3nd4a5fk7e" path="res://towers/sapling/sapling.tscn" id="6_moqds"]
 [ext_resource type="Script" path="res://PathableArea.gd" id="7_7f8ue"]
@@ -63,9 +62,6 @@ layer_3/tile_data = PackedInt32Array()
 script = ExtResource("5_614l4")
 
 [node name="Spawner" type="Node2D" parent="."]
-
-[node name="Ui" parent="." instance=ExtResource("5_4r2n0")]
-visible = false
 
 [node name="PathableArea" type="NavigationRegion2D" parent="."]
 position = Vector2(681, 374)
