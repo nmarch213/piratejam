@@ -68,8 +68,7 @@ script = ExtResource("5_614l4")
 visible = false
 
 [node name="PathableArea" type="NavigationRegion2D" parent="."]
-visible = false
-position = Vector2(594, 328)
+position = Vector2(681, 374)
 navigation_polygon = SubResource("NavigationPolygon_o3lu4")
 script = ExtResource("7_7f8ue")
 
