@@ -1,6 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=17 format=3 uid="uid://dfhenhhamjbxb"]
 
+[ext_resource type="Texture2D" uid="uid://dmb8njqpnwvis" path="res://assets/bubble.png" id="1_00w8f"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="2_7s0fv"]
+[ext_resource type="Texture2D" uid="uid://djpg6ovdth1gj" path="res://assets/sun.png" id="2_shfu6"]
 [ext_resource type="Texture2D" uid="uid://d0ip76gubctdl" path="res://assets/grass.png" id="3_6vybs"]
 [ext_resource type="PackedScene" uid="uid://bkthjsnqioj06" path="res://tree/MotherTree.tscn" id="3_gu0s8"]
 [ext_resource type="PackedScene" uid="uid://18pm78o3k5ov" path="res://enemies/ember/ember.tscn" id="4_7yun8"]
@@ -8,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dofe8r266nbd8" path="res://assets/sand.png" id="4_go5rx"]
 [ext_resource type="Script" path="res://TilemMap.gd" id="5_614l4"]
 [ext_resource type="PackedScene" uid="uid://duq3nd4a5fk7e" path="res://tree/towers/sapling/sapling.tscn" id="6_moqds"]
+[ext_resource type="FontFile" uid="uid://beaps4f41mg6p" path="res://assets/NovaScript-Regular.ttf" id="10_nm2hh"]
+[ext_resource type="Script" path="res://SunlightLabel.gd" id="10_y18uf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nuel"]
 texture = ExtResource("3_6vybs")
@@ -72,3 +76,36 @@ position = Vector2(446, 416)
 
 [node name="Sapling" parent="." instance=ExtResource("6_moqds")]
 position = Vector2(476, 451)
+
+[node name="MainUI" type="CanvasLayer" parent="."]
+
+[node name="Bubble" type="Sprite2D" parent="MainUI"]
+modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(8, 12)
+scale = Vector2(1.5, 1.688)
+texture = ExtResource("1_00w8f")
+centered = false
+
+[node name="SunlightLabel" type="Label" parent="MainUI"]
+anchors_preset = -1
+anchor_left = 0.653
+anchor_top = 0.484568
+anchor_right = 0.664285
+anchor_bottom = 0.5
+offset_left = -677.256
+offset_top = -291.0
+offset_right = -637.256
+offset_bottom = -268.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_nm2hh")
+text = "0"
+vertical_alignment = 1
+script = ExtResource("10_y18uf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sun" type="Sprite2D" parent="MainUI"]
+position = Vector2(39, 42)
+scale = Vector2(2.875, 2.875)
+texture = ExtResource("2_shfu6")
