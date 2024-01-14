@@ -24,6 +24,8 @@ func _ready():
 	health_bar.max_value = MAX_HEALTH
 	damage_bar.value = health
 	damage_bar.max_value = MAX_HEALTH
+	if is_full_health():
+		health_bar.hide()
 
 func damage(attack: Attack):
 	health -= attack.damage
@@ -31,12 +33,15 @@ func damage(attack: Attack):
 	damage_bar.value = attack.damage
 	if health <= 0:
 		get_parent().queue_free()
+	health_bar.show()
 		
 func heal(amount):
 	health = min(health + amount, MAX_HEALTH)
 	health_bar.value = health
+	if is_full_health():
+		health_bar.hide()
 	
-func is_max_health():
+func is_full_health():
 	return health == MAX_HEALTH
 
 func _on_timer_timeout():
