@@ -6,7 +6,7 @@ func bank_sunlight(amount):
 	sunlight_banked += amount
 	
 func is_affordable(amount):
-	amount <= sunlight_banked
+	return amount <= sunlight_banked
 	
 func spend_sunlight(amount):
 	sunlight_banked -= amount
