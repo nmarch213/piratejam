@@ -1,15 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=22 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l6jnq"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="2_owgi6"]
 [ext_resource type="PackedScene" uid="uid://bkthjsnqioj06" path="res://tree/MotherTree.tscn" id="3_gu0s8"]
 [ext_resource type="PackedScene" uid="uid://18pm78o3k5ov" path="res://enemies/ember/ember.tscn" id="4_7yun8"]
 [ext_resource type="Texture2D" uid="uid://cp3gbwlvw3fxu" path="res://tilemap.png" id="4_xhmo5"]
+[ext_resource type="PackedScene" uid="uid://du4c1rjta3ewr" path="res://tree/towers/thorn/thorn.tscn" id="5_omomg"]
 [ext_resource type="Script" path="res://TileMap.gd" id="6_4650s"]
 [ext_resource type="PackedScene" uid="uid://bsriofwcq48sj" path="res://tree/towers/sapling/sapling.tscn" id="6_moqds"]
 [ext_resource type="Script" path="res://UIController.gd" id="7_2rcum"]
 [ext_resource type="PackedScene" uid="uid://dtwfw8ksgubyu" path="res://ui/buy_menu/buy_menu.tscn" id="8_rwyyp"]
 [ext_resource type="Script" path="res://BuildingController.gd" id="9_4t46y"]
+[ext_resource type="Script" path="res://Spawner.gd" id="10_t0iqe"]
 [ext_resource type="Texture2D" path="res://assets/bubble.png" id="11_xp85h"]
 [ext_resource type="FontFile" path="res://assets/NovaScript-Regular.ttf" id="12_kfprn"]
 [ext_resource type="Script" path="res://Bubble.gd" id="12_my5aw"]
@@ -19,6 +21,7 @@
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dfxfv"]
 resource_name = "towers"
 scenes/1/scene = ExtResource("6_moqds")
+scenes/2/scene = ExtResource("5_omomg")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mq8my"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -132,6 +135,14 @@ offset_top = 20.0
 offset_right = 98.0
 offset_bottom = 60.0
 
+[node name="Spawner" type="Marker2D" parent="."]
+position = Vector2(758, 744)
+script = ExtResource("10_t0iqe")
+
+[node name="WaveTimer" type="Timer" parent="Spawner"]
+wait_time = 3.0
+
 [connection signal="tile_map_clicked" from="TileMap" to="UIController" method="_on_tile_map_tile_map_clicked"]
 [connection signal="id_pressed" from="UIController/BuyMenu" to="BuildingController" method="_on_buy_menu_id_pressed"]
 [connection signal="sunlight_text_max_changed" from="MainUI/Control/SunlightLabel" to="MainUI/Bubble" method="_on_sunlight_label_sunlight_text_max_changed"]
+[connection signal="timeout" from="Spawner/WaveTimer" to="Spawner" method="_on_wave_timer_timeout"]

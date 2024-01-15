@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtwfw8ksgubyu"]
+[gd_scene load_steps=3 format=3 uid="uid://dtwfw8ksgubyu"]
 
-[ext_resource type="Texture2D" uid="uid://bfkivj6cembuh" path="res://towers/sapling/sapling.png" id="1_1ysvb"]
+[ext_resource type="Texture2D" uid="uid://bfkivj6cembuh" path="res://tree/towers/sapling/sapling.png" id="1_1ysvb"]
+[ext_resource type="Texture2D" uid="uid://c4xviaap1mv43" path="res://tree/towers/thorn/thorn.png" id="2_tlcvk"]
 
 [node name="BuyMenu" type="PopupMenu"]
-item_count = 1
+visible = true
+item_count = 2
 item_0/text = "100"
 item_0/icon = ExtResource("1_1ysvb")
 item_0/id = 0
+item_1/text = "400"
+item_1/icon = ExtResource("2_tlcvk")
+item_1/id = 1

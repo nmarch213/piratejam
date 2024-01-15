@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c71q83p0p1e0"
+path="res://.godot/imported/thorn.aseprite-b7a0214b1ea4bb38e9f037004d5de590.res"
+
+[deps]
+
+source_file="res://tree/towers/thorn/thorn.aseprite"
+dest_files=["res://.godot/imported/thorn.aseprite-b7a0214b1ea4bb38e9f037004d5de590.res"]
+
+[params]
+

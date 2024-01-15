@@ -9,12 +9,19 @@ extends Node2D
 
 func _on_buy_menu_id_pressed(id):
 	# if the user clicked sapling in the menu
-	if(id == 0):
-		place_sapling_tower(ui_controller.latest_cell_clicked)
+	match id:
+		0: place_sapling_tower(ui_controller.latest_cell_clicked)
+		1: place_thorn_tower(ui_controller.latest_cell_clicked)
+
 	
 	
 func place_sapling_tower(cell_clicked_position: Vector2i) -> void:
 	tile_map.set_cell(tile_map.LAYER.TOWERS, cell_clicked_position, 3, Vector2(0,0), 1)
+	main.astar_grid.set_point_solid(cell_clicked_position, true)
+	spread_grass(cell_clicked_position)
+
+func place_thorn_tower(cell_clicked_position: Vector2i) -> void:
+	tile_map.set_cell(tile_map.LAYER.TOWERS, cell_clicked_position, 3, Vector2(0,0), 2)
 	main.astar_grid.set_point_solid(cell_clicked_position, true)
 	spread_grass(cell_clicked_position)
 
@@ -24,3 +31,5 @@ func spread_grass(cell_clicked_position: Vector2i) -> void:
 			await get_tree().create_timer(.1).timeout
 			var grass_pos = Vector2i(x, y) + cell_clicked_position
 			tile_map.set_cell(tile_map.LAYER.BASE, grass_pos, 4, Vector2(0,0), 0)	
+
+
