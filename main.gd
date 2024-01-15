@@ -8,10 +8,19 @@ class_name Main
 var astar_grid: AStarGrid2D
 
 func _ready():
-	setup_astargrid()
+	_setup_astargrid()
+	# these are the placeholder towers, they are not walkable
+	# when we add the ability to place towers we will need to
+	# add them to the astar grid like shown below
+	add_tower_to_grid(Vector2i(30, 25))
+	add_tower_to_grid(Vector2i(30, 26))
+	add_tower_to_grid(Vector2i(31, 27))
+	add_tower_to_grid(Vector2i(32, 28))
+	add_tower_to_grid(Vector2i(33, 29))
+	add_tower_to_grid(Vector2i(34, 29))
 
 
-func setup_astargrid():
+func _setup_astargrid():
 	astar_grid = AStarGrid2D.new()
 	astar_grid.region = tile_map.get_used_rect()
 	astar_grid.cell_size = Vector2(32,32)
@@ -28,6 +37,10 @@ func setup_astargrid():
 
 			if tile_data == null or not tile_data.get_custom_data("base"):
 				astar_grid.set_point_solid(tile_pos)
+
+func add_tower_to_grid(tower_pos: Vector2) -> void:
+	# this makes it so that the tower is not a walkable point
+	astar_grid.set_point_solid(tower_pos, true)
 
 func get_enemy_path(enemy_pos: Vector2) -> Array[Vector2i]:
 	var path := astar_grid.get_id_path(

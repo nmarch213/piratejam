@@ -49,9 +49,8 @@ position = Vector2(1122, 826)
 position = Vector2(1187, 707)
 scale = Vector2(2, 2)
 
-[node name="Ember" parent="." node_paths=PackedStringArray("tree") instance=ExtResource("4_7yun8")]
+[node name="Ember" parent="." instance=ExtResource("4_7yun8")]
 position = Vector2(778, 970)
-tree = NodePath("../MotherTree")
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -2
