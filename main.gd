@@ -63,6 +63,6 @@ func place_sapling_tower() -> void:
 	# 3 is the layer
 	# source ID in godot is 3,
 	# 1 is the Alternate ID for the sapling
-	tile_map.set_cell(3, tile_pos, 3, Vector2(0,0), 1)
+	tile_map.set_cell(tile_map.LAYER.TOWERS, tile_pos, 3, Vector2(0,0), 1)
 	astar_grid.set_point_solid(tile_pos, true)
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=11 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l6jnq"]
 [ext_resource type="PackedScene" uid="uid://bkthjsnqioj06" path="res://tree/MotherTree.tscn" id="3_gu0s8"]
 [ext_resource type="PackedScene" uid="uid://18pm78o3k5ov" path="res://enemies/ember/ember.tscn" id="4_7yun8"]
 [ext_resource type="Texture2D" uid="uid://cp3gbwlvw3fxu" path="res://tilemap.png" id="4_xhmo5"]
+[ext_resource type="Script" path="res://TileMap.gd" id="6_4650s"]
 [ext_resource type="PackedScene" uid="uid://duq3nd4a5fk7e" path="res://towers/sapling/sapling.tscn" id="6_moqds"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dfxfv"]
@@ -62,9 +63,7 @@ layer_0/tile_data = PackedInt32Array(0, 131076, 0, 65536, 131076, 0, 1, 131076, 
 layer_1/name = "spreading grass"
 layer_1/tile_data = PackedInt32Array()
 layer_2/name = "towers"
-layer_2/tile_data = PackedInt32Array(1900578, 3, 65536, 1900577, 3, 65536, 1835040, 3, 65536, 1769503, 3, 65536, 1703966, 3, 65536, 1638430, 3, 65536)
+layer_2/tile_data = PackedInt32Array()
 layer_3/name = "building grid"
 layer_3/tile_data = PackedInt32Array()
-
-[node name="Sapling" parent="." instance=ExtResource("6_moqds")]
-position = Vector2(964, 968)
+script = ExtResource("6_4650s")
