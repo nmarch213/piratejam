@@ -65,4 +65,14 @@ func place_sapling_tower() -> void:
 	# 1 is the Alternate ID for the sapling
 	tile_map.set_cell(tile_map.LAYER.TOWERS, tile_pos, 3, Vector2(0,0), 1)
 	astar_grid.set_point_solid(tile_pos, true)
+	spread_grass()
+
+func spread_grass() -> void:
+	var mouse_pos = get_global_mouse_position()
+	var tile_pos = tile_map.local_to_map(mouse_pos)
+	for x in range(-1, 2):
+		for y in range(-1, 2):
+			await get_tree().create_timer(.1).timeout
+			var grass_pos = Vector2i(x, y) + tile_pos
+			tile_map.set_cell(tile_map.LAYER.BASE, grass_pos, 4, Vector2(0,0), 0)
 
