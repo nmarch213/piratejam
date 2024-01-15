@@ -8,6 +8,7 @@
 radius = 14.0
 height = 34.0
 
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_djvk3"]
 radius = 51.0098
 
@@ -34,12 +35,17 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://assets/TileSet 2.0.aseprite"
 }
 
-[node name="HealthComponent" parent="." instance=ExtResource("2_d184v")]
+[node name="HealthComponent" parent="." groups=["tree"] instance=ExtResource("2_d184v")]
 position = Vector2(-19, -22)
 scale = Vector2(0.16, 0.745)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_c631j")
+
+[node name="SunTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="SunTimer" to="." method="_on_sun_timer_timeout"]
 
 [node name="Area2D" type="Area2D" parent="."]
 
