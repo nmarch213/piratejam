@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=13 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l6jnq"]
 [ext_resource type="PackedScene" uid="uid://bkthjsnqioj06" path="res://tree/MotherTree.tscn" id="3_gu0s8"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cp3gbwlvw3fxu" path="res://tilemap.png" id="4_xhmo5"]
 [ext_resource type="Script" path="res://TileMap.gd" id="6_4650s"]
 [ext_resource type="PackedScene" uid="uid://duq3nd4a5fk7e" path="res://towers/sapling/sapling.tscn" id="6_moqds"]
+[ext_resource type="Script" path="res://UIController.gd" id="7_2rcum"]
+[ext_resource type="PackedScene" uid="uid://dtwfw8ksgubyu" path="res://ui/buy_menu/buy_menu.tscn" id="8_rwyyp"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dfxfv"]
 resource_name = "towers"
@@ -67,3 +69,10 @@ layer_2/tile_data = PackedInt32Array()
 layer_3/name = "building grid"
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("6_4650s")
+
+[node name="UIController" type="Node2D" parent="."]
+script = ExtResource("7_2rcum")
+
+[node name="BuyMenu" parent="UIController" instance=ExtResource("8_rwyyp")]
+
+[connection signal="tile_map_clicked" from="TileMap" to="UIController" method="_on_tile_map_tile_map_clicked"]
