@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=16 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l6jnq"]
 [ext_resource type="PackedScene" uid="uid://bkthjsnqioj06" path="res://tree/MotherTree.tscn" id="3_gu0s8"]
 [ext_resource type="PackedScene" uid="uid://18pm78o3k5ov" path="res://enemies/ember/ember.tscn" id="4_7yun8"]
 [ext_resource type="Texture2D" uid="uid://cp3gbwlvw3fxu" path="res://tilemap.png" id="4_xhmo5"]
+[ext_resource type="PackedScene" uid="uid://du4c1rjta3ewr" path="res://tree/towers/thorn/thorn.tscn" id="5_omomg"]
 [ext_resource type="Script" path="res://TileMap.gd" id="6_4650s"]
 [ext_resource type="PackedScene" uid="uid://bsriofwcq48sj" path="res://tree/towers/sapling/sapling.tscn" id="6_moqds"]
 [ext_resource type="Script" path="res://UIController.gd" id="7_2rcum"]
@@ -14,6 +15,7 @@
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dfxfv"]
 resource_name = "towers"
 scenes/1/scene = ExtResource("6_moqds")
+scenes/2/scene = ExtResource("5_omomg")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mq8my"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
