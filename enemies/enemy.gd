@@ -4,9 +4,12 @@ class_name Enemy
 @onready var main_scene: Main  = $"../../Main"
 @onready var tile_map = $"../TileMap"
 @onready var sprite = $Sprite2D
+@onready var mother_tree = $"../MotherTree"
 
 var astar_grid: AStarGrid2D
 var is_moving = false
+
+@export var damage = 10
 
 func _process(_delta):
 	if is_moving:
@@ -20,7 +23,7 @@ func move():
 	path.pop_front()
 
 	if path.is_empty():
-		print("No path found")
+		_die()
 		return
 
 	var original_pos = global_position;
@@ -38,7 +41,11 @@ func _physics_process(_delta):
 
 	is_moving = false
 
+func damage_mother_tree() -> void:
+	mother_tree.damage(damage)
+	_die()
 
-
+func _die():
+	queue_free()
 
 
