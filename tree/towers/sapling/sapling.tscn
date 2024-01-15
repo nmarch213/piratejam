@@ -1,8 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://duq3nd4a5fk7e"]
 
-[ext_resource type="Texture2D" uid="uid://bdy2mgr3ecejy" path="res://tree/tree.png" id="1_do137"]
-[ext_resource type="Script" path="res://tree/towers/sapling/sapling.gd" id="1_usvqb"]
 [ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="3_k38r1"]
+
+
+[ext_resource type="Script" path="res://towers/sapling/sapling.gd" id="1_4ppr6"]
+[ext_resource type="Texture2D" uid="uid://bfkivj6cembuh" path="res://towers/sapling/sapling.png" id="2_25xt5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bchn0"]
 size = Vector2(29, 31)
@@ -11,7 +13,7 @@ size = Vector2(29, 31)
 script = ExtResource("1_usvqb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_do137")
+texture = ExtResource("2_25xt5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
