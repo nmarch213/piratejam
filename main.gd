@@ -5,7 +5,7 @@ class_name Main
 @onready var tile_map = $TileMap;
 @export var tree: MotherTree
 
-var sapling: PackedScene = preload("res://towers/sapling/Sapling.tscn")
+var sapling: PackedScene = preload("res://tree/towers/sapling/sapling.tscn")
 
 var astar_grid: AStarGrid2D
 
