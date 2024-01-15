@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bfkivj6cembuh" path="res://towers/sapling/sapling.png" id="1_1ysvb"]
 
 [node name="BuyMenu" type="PopupMenu"]
-visible = true
 item_count = 1
 item_0/text = "100"
 item_0/icon = ExtResource("1_1ysvb")

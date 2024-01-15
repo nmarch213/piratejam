@@ -7,7 +7,7 @@ enum LAYER {
 	GRID = 3,
 }
 
-signal tile_map_clicked(cell_clicked_position: Vector2i)
+signal tile_map_clicked(cell_clicked_position: Vector2i, event_position: Vector2)
 
 func _process(_delta):
 	var cell : Vector2i = local_to_map(get_local_mouse_position())
@@ -18,4 +18,4 @@ func _process(_delta):
 		
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		tile_map_clicked.emit(local_to_map(get_local_mouse_position()))
+		tile_map_clicked.emit(local_to_map(get_local_mouse_position()), event.position)

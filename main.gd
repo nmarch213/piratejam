@@ -21,10 +21,6 @@ func _ready():
 	add_tower_to_grid(Vector2i(33, 29))
 	add_tower_to_grid(Vector2i(34, 29))
 
-#func _input(_event):
-	#if Input.is_action_just_pressed("Place"):
-		#place_sapling_tower()
-
 
 func _setup_astargrid():
 	astar_grid = AStarGrid2D.new()
