@@ -1,5 +1,9 @@
 extends Node2D
 
+var costs = {
+	0: 100,
+	1: 400
+}
 
 @onready var tile_map = $"../TileMap"
 @onready var main = $".."
@@ -9,9 +13,11 @@ extends Node2D
 
 func _on_buy_menu_id_pressed(id):
 	# if the user clicked sapling in the menu
-	match id:
-		0: place_sapling_tower(ui_controller.latest_cell_clicked)
-		1: place_thorn_tower(ui_controller.latest_cell_clicked)
+	if SunlightManager.is_affordable(costs[id]):
+		SunlightManager.spend_sunlight(costs[id])
+		match id:
+			0: place_sapling_tower(ui_controller.latest_cell_clicked)
+			1: place_thorn_tower(ui_controller.latest_cell_clicked)
 
 	
 	
