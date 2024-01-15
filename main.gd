@@ -11,15 +11,6 @@ var astar_grid: AStarGrid2D
 
 func _ready():
 	_setup_astargrid()
-	# these are the placeholder towers, they are not walkable
-	# when we add the ability to place towers we will need to
-	# add them to the astar grid like shown below
-	add_tower_to_grid(Vector2i(30, 25))
-	add_tower_to_grid(Vector2i(30, 26))
-	add_tower_to_grid(Vector2i(31, 27))
-	add_tower_to_grid(Vector2i(32, 28))
-	add_tower_to_grid(Vector2i(33, 29))
-	add_tower_to_grid(Vector2i(34, 29))
 
 
 func _setup_astargrid():
