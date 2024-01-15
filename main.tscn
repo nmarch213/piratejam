@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=15 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l6jnq"]
 [ext_resource type="PackedScene" uid="uid://bkthjsnqioj06" path="res://tree/MotherTree.tscn" id="3_gu0s8"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://UIController.gd" id="7_2rcum"]
 [ext_resource type="PackedScene" uid="uid://dtwfw8ksgubyu" path="res://ui/buy_menu/buy_menu.tscn" id="8_rwyyp"]
 [ext_resource type="Script" path="res://BuildingController.gd" id="9_4t46y"]
+[ext_resource type="Script" path="res://Spawner.gd" id="10_t0iqe"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dfxfv"]
 resource_name = "towers"
@@ -79,5 +80,14 @@ script = ExtResource("7_2rcum")
 [node name="BuildingController" type="Node2D" parent="."]
 script = ExtResource("9_4t46y")
 
+[node name="Spawner" type="Marker2D" parent="."]
+position = Vector2(758, 744)
+script = ExtResource("10_t0iqe")
+
+[node name="WaveTimer" type="Timer" parent="Spawner"]
+wait_time = 3.0
+autostart = true
+
 [connection signal="tile_map_clicked" from="TileMap" to="UIController" method="_on_tile_map_tile_map_clicked"]
 [connection signal="id_pressed" from="UIController/BuyMenu" to="BuildingController" method="_on_buy_menu_id_pressed"]
+[connection signal="timeout" from="Spawner/WaveTimer" to="Spawner" method="_on_wave_timer_timeout"]
