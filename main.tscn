@@ -65,3 +65,6 @@ layer_2/name = "towers"
 layer_2/tile_data = PackedInt32Array(1900578, 3, 65536, 1900577, 3, 65536, 1835040, 3, 65536, 1769503, 3, 65536, 1703966, 3, 65536, 1638430, 3, 65536)
 layer_3/name = "building grid"
 layer_3/tile_data = PackedInt32Array()
+
+[node name="Sapling" parent="." instance=ExtResource("6_moqds")]
+position = Vector2(964, 968)
