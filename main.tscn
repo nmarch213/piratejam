@@ -1,18 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=15 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l6jnq"]
 [ext_resource type="PackedScene" uid="uid://bkthjsnqioj06" path="res://tree/MotherTree.tscn" id="3_gu0s8"]
 [ext_resource type="PackedScene" uid="uid://18pm78o3k5ov" path="res://enemies/ember/ember.tscn" id="4_7yun8"]
-[ext_resource type="Texture2D" uid="uid://5cu45j37smxw" path="res://assets/grid_selector.png" id="4_80v71"]
-[ext_resource type="Texture2D" uid="uid://dofe8r266nbd8" path="res://assets/sand.png" id="4_go5rx"]
-[ext_resource type="Script" path="res://TileMap.gd" id="5_614l4"]
-[ext_resource type="PackedScene" uid="uid://duq3nd4a5fk7e" path="res://tree/towers/sapling/sapling.tscn" id="6_moqds"]
 [ext_resource type="Texture2D" uid="uid://cp3gbwlvw3fxu" path="res://tilemap.png" id="4_xhmo5"]
 [ext_resource type="Script" path="res://TileMap.gd" id="6_4650s"]
-[ext_resource type="PackedScene" uid="uid://duq3nd4a5fk7e" path="res://tree/towers/sapling/sapling.tscn" id="6_moqds"]
+[ext_resource type="PackedScene" uid="uid://bsriofwcq48sj" path="res://tree/towers/sapling/sapling.tscn" id="6_moqds"]
 [ext_resource type="Script" path="res://UIController.gd" id="7_2rcum"]
 [ext_resource type="PackedScene" uid="uid://dtwfw8ksgubyu" path="res://ui/buy_menu/buy_menu.tscn" id="8_rwyyp"]
 [ext_resource type="Script" path="res://BuildingController.gd" id="9_4t46y"]
+[ext_resource type="Script" path="res://Spawner.gd" id="10_t0iqe"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dfxfv"]
 resource_name = "towers"
@@ -46,7 +43,6 @@ sources/3 = SubResource("TileSetScenesCollectionSource_dfxfv")
 sources/4 = SubResource("TileSetAtlasSource_3sikg")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [4, Vector2i(0, 0)], [1, Vector2i(0, 0)], [4, Vector2i(1, 0)], [2, Vector2i(0, 0)], [4, Vector2i(2, 0)]]
 
-
 [node name="Main" type="Node2D" node_paths=PackedStringArray("tree")]
 script = ExtResource("1_l6jnq")
 tree = NodePath("MotherTree")
@@ -76,7 +72,6 @@ layer_3/name = "building grid"
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("6_4650s")
 
-
 [node name="UIController" type="Node2D" parent="."]
 script = ExtResource("7_2rcum")
 
@@ -85,5 +80,13 @@ script = ExtResource("7_2rcum")
 [node name="BuildingController" type="Node2D" parent="."]
 script = ExtResource("9_4t46y")
 
+[node name="Spawner" type="Marker2D" parent="."]
+position = Vector2(758, 744)
+script = ExtResource("10_t0iqe")
+
+[node name="WaveTimer" type="Timer" parent="Spawner"]
+wait_time = 3.0
+
 [connection signal="tile_map_clicked" from="TileMap" to="UIController" method="_on_tile_map_tile_map_clicked"]
 [connection signal="id_pressed" from="UIController/BuyMenu" to="BuildingController" method="_on_buy_menu_id_pressed"]
+[connection signal="timeout" from="Spawner/WaveTimer" to="Spawner" method="_on_wave_timer_timeout"]
