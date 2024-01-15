@@ -1,19 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkthjsnqioj06"]
+[gd_scene load_steps=6 format=3 uid="uid://bkthjsnqioj06"]
 
 [ext_resource type="Script" path="res://tree/MotherTree.gd" id="1_b78f8"]
 [ext_resource type="Texture2D" uid="uid://bdy2mgr3ecejy" path="res://tree/tree.png" id="1_wuvvu"]
 [ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="2_d184v"]
-[ext_resource type="PackedScene" uid="uid://di5pnhypgvcm1" path="res://components/HitboxComponent.tscn" id="3_uy08p"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hkywe"]
-radius = 6.0
-height = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c631j"]
 radius = 14.0
 height = 34.0
 
-[node name="MotherTree" type="CharacterBody2D" groups=["Player"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_djvk3"]
+radius = 51.0098
+
+[node name="MotherTree" type="StaticBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_b78f8")
@@ -21,18 +19,31 @@ script = ExtResource("1_b78f8")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 2
 visibility_layer = 2
+texture_filter = 1
 texture = ExtResource("1_wuvvu")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": "res://assets/TileSet 2.0.aseprite"
+}
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_d184v")]
 position = Vector2(-19, -22)
 scale = Vector2(0.16, 0.745)
 
-[node name="HitboxComponent" parent="." instance=ExtResource("3_uy08p")]
-position = Vector2(0, 1)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-shape = SubResource("CapsuleShape2D_hkywe")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_c631j")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_djvk3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
