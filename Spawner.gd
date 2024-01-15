@@ -5,7 +5,6 @@ var ember: PackedScene = preload("res://enemies/ember/Ember.tscn")
 
 var current_wave = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	wave_timer.start()
 

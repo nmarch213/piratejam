@@ -86,7 +86,6 @@ script = ExtResource("10_t0iqe")
 
 [node name="WaveTimer" type="Timer" parent="Spawner"]
 wait_time = 3.0
-autostart = true
 
 [connection signal="tile_map_clicked" from="TileMap" to="UIController" method="_on_tile_map_tile_map_clicked"]
 [connection signal="id_pressed" from="UIController/BuyMenu" to="BuildingController" method="_on_buy_menu_id_pressed"]
