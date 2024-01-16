@@ -4,10 +4,12 @@ class_name Attack
 @onready var bullet = $Bullet
 
 @export var attack_damage = 1
-@export var attack_speed = 1
+@export var attack_speed = .1
 @export var attack_range = 100
 @export var crit_chance = 0
 @export var aoe = 0
+
+var enemies_in_range = []
 
 # @export var enemy_prio
 # @export var attack_type - Piercing, Slashing, Blunt, Fire, Ice, Lightning, Poison, Magic, Holy, Dark
@@ -15,6 +17,7 @@ class_name Attack
 
 func _ready():
 	create_attack_range()
+	_setup_attack_timer()
 
 func create_attack_range():
 	print("Creating attack range")
@@ -25,14 +28,20 @@ func create_attack_range():
 	shape.radius = attack_range
 	collision.shape = shape
 	area.body_entered.connect(_on_range_body_entered)
+	area.body_exited.connect(_on_range_body_exited)
 	area.monitoring = true
 	area.add_child(collision)
 	add_child(area)
 
 func _on_range_body_entered(body):
-	print(body.name)
 	if body is Enemy:
-		_attack(body)
+		if body not in enemies_in_range:
+			enemies_in_range.append(body)
+
+func _on_range_body_exited(body):
+	if body is Enemy:
+		if body in enemies_in_range:
+			enemies_in_range.erase(body)
 
 func _attack(enemy: Enemy):
 	var damage = attack_damage
@@ -40,5 +49,16 @@ func _attack(enemy: Enemy):
 		damage *= 2
 	enemy.healthComponent.take_damage(damage)
 
+func _setup_attack_timer():
+	var timer = Timer.new()
+	timer.wait_time = attack_speed
+	timer.timeout.connect(_on_timer_timeout)
+	add_child(timer)
+	timer.start()
 
+func _on_timer_timeout():
+	print("Attack timer timeout")
+	print(enemies_in_range.size())
+	if enemies_in_range.size() > 0:
+		_attack(enemies_in_range[0])
 
