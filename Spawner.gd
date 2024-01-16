@@ -7,6 +7,7 @@ var current_wave = 0
 
 func _ready():
 	wave_timer.start()
+	
 
 
 func spawn_wave_1():
