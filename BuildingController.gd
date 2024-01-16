@@ -7,7 +7,7 @@ var costs = {
 
 @onready var tile_map = $"../TileMap"
 @onready var main = $".."
-@onready var ui_controller = $"../UIController"
+@onready var tile_click_controller = $"../TileClickController"
 
 
 
@@ -16,8 +16,8 @@ func _on_buy_menu_id_pressed(id):
 	if SunlightManager.is_affordable(costs[id]):
 		SunlightManager.spend_sunlight(costs[id])
 		match id:
-			0: place_sapling_tower(ui_controller.latest_cell_clicked)
-			1: place_thorn_tower(ui_controller.latest_cell_clicked)
+			0: place_sapling_tower(tile_click_controller.latest_cell_clicked)
+			1: place_thorn_tower(tile_click_controller.latest_cell_clicked)
 
 	
 	
