@@ -4,12 +4,13 @@ class_name Enemy
 @onready var main_scene: Main  = $"../../Main"
 @onready var tile_map = $"../TileMap"
 @onready var sprite = $Sprite2D
+@onready var healthComponent = $HealthComponent
 @onready var mother_tree = $"../MotherTree"
 
 var astar_grid: AStarGrid2D
 var is_moving = false
 
-@export var damage = 10
+@export var damage = 0
 
 func _process(_delta):
 	if is_moving:
@@ -42,7 +43,7 @@ func _physics_process(_delta):
 	is_moving = false
 
 func damage_mother_tree() -> void:
-	mother_tree.damage(damage)
+	mother_tree.health_component.take_damage(damage)
 	_die()
 
 func _die():
