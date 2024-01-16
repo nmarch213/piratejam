@@ -27,10 +27,10 @@ func _ready():
 	if is_full_health():
 		health_bar.hide()
 
-func damage(attack: Attack):
-	health -= attack.damage
+func take_damage(dmg: float):
+	health -= dmg
 	health_bar.value = health
-	damage_bar.value = attack.damage
+	damage_bar.value = dmg
 	if health <= 0:
 		get_parent().queue_free()
 	health_bar.show()

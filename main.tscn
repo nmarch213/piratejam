@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=21 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l6jnq"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="2_owgi6"]
 [ext_resource type="PackedScene" uid="uid://bkthjsnqioj06" path="res://tree/MotherTree.tscn" id="3_gu0s8"]
-[ext_resource type="PackedScene" uid="uid://18pm78o3k5ov" path="res://enemies/ember/ember.tscn" id="4_7yun8"]
 [ext_resource type="Texture2D" uid="uid://cp3gbwlvw3fxu" path="res://tilemap.png" id="4_xhmo5"]
 [ext_resource type="PackedScene" uid="uid://du4c1rjta3ewr" path="res://tree/towers/thorn/thorn.tscn" id="5_omomg"]
 [ext_resource type="Script" path="res://TileMap.gd" id="6_4650s"]
@@ -12,11 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://dtwfw8ksgubyu" path="res://ui/buy_menu/buy_menu.tscn" id="8_rwyyp"]
 [ext_resource type="Script" path="res://BuildingController.gd" id="9_4t46y"]
 [ext_resource type="Script" path="res://Spawner.gd" id="10_t0iqe"]
-[ext_resource type="Texture2D" path="res://assets/bubble.png" id="11_xp85h"]
-[ext_resource type="FontFile" path="res://assets/NovaScript-Regular.ttf" id="12_kfprn"]
+[ext_resource type="Texture2D" uid="uid://dmb8njqpnwvis" path="res://assets/bubble.png" id="11_xp85h"]
+[ext_resource type="FontFile" uid="uid://beaps4f41mg6p" path="res://assets/NovaScript-Regular.ttf" id="12_kfprn"]
 [ext_resource type="Script" path="res://Bubble.gd" id="12_my5aw"]
 [ext_resource type="Script" path="res://SunlightLabel.gd" id="13_fqykk"]
-[ext_resource type="Texture2D" path="res://assets/sun.png" id="13_ftsqr"]
+[ext_resource type="Texture2D" uid="uid://djpg6ovdth1gj" path="res://assets/sun.png" id="13_ftsqr"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dfxfv"]
 resource_name = "towers"
@@ -62,9 +61,6 @@ script = ExtResource("2_owgi6")
 [node name="MotherTree" parent="." instance=ExtResource("3_gu0s8")]
 position = Vector2(1187, 707)
 scale = Vector2(2, 2)
-
-[node name="Ember" parent="." instance=ExtResource("4_7yun8")]
-position = Vector2(778, 970)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -2

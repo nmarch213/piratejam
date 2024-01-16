@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://du4c1rjta3ewr"]
+[gd_scene load_steps=5 format=3 uid="uid://du4c1rjta3ewr"]
 
 [ext_resource type="Script" path="res://tree/towers/thorn/thorn.gd" id="1_5e8nv"]
 [ext_resource type="Texture2D" uid="uid://c4xviaap1mv43" path="res://tree/towers/thorn/thorn.png" id="2_t57lc"]
+[ext_resource type="PackedScene" uid="uid://omkt3t2mm7vu" path="res://components/AttackComponent.tscn" id="3_gvrtm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khs1i"]
 size = Vector2(29, 27)
@@ -28,3 +29,6 @@ metadata/_aseprite_wizard_config_ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_khs1i")
+
+[node name="AttackComponent" parent="." instance=ExtResource("3_gvrtm")]
+position = Vector2(0, 1)

@@ -10,11 +10,11 @@
 radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hw3ti"]
-radius = 15.0333
+radius = 18.0278
 
-[node name="Ember" type="CharacterBody2D"]
+[node name="Ember" type="CharacterBody2D" groups=["Enemy"]]
 position = Vector2(-2, 2)
-collision_layer = 2
+collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_ol4tq")
 metadata/_edit_group_ = true
