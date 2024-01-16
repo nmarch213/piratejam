@@ -10,7 +10,7 @@ class_name Enemy
 var astar_grid: AStarGrid2D
 var is_moving = false
 
-@export var damage = 10
+@export var damage = 0
 
 func _process(_delta):
 	if is_moving:
