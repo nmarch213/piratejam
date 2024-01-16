@@ -10,7 +10,7 @@ class_name Enemy
 var astar_grid: AStarGrid2D
 var is_moving = false
 
-@export var damage = 0
+@export var damage = 10
 
 func _process(_delta):
 	if is_moving:
@@ -24,7 +24,7 @@ func move():
 	path.pop_front()
 
 	if path.is_empty():
-		_die()
+		queue_free()
 		return
 
 	var original_pos = global_position;
@@ -43,10 +43,8 @@ func _physics_process(_delta):
 	is_moving = false
 
 func damage_mother_tree() -> void:
-	mother_tree.health_component.take_damage(damage)
-	_die()
-
-func _die():
-	queue_free()
+	if mother_tree:
+		mother_tree.health_component.take_damage(damage)
+		queue_free()
 
 
