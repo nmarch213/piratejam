@@ -3,7 +3,6 @@ class_name Main
 
 
 @onready var tile_map = $TileMap;
-#@export var tree: MotherTree
 @onready var mother_tree = $MotherTree
 
 var sapling: PackedScene = preload("res://tree/towers/sapling/sapling.tscn")

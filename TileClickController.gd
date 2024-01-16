@@ -13,7 +13,6 @@ func _ready():
 
 func _on_tile_map_tile_map_clicked(cell_clicked_position: Vector2i, event_position: Vector2):
 	tower_positions = tile_map.get_used_cells(tile_map.LAYER.TOWERS).map(to_vector2)
-
 	if mother_tree_positions.has(cell_clicked_position):
 		pass #TODO: mother tree upgrades?
 	elif tower_positions.has(cell_clicked_position):
