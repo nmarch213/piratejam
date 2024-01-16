@@ -77,17 +77,18 @@ layer_3/name = "building grid"
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("6_4650s")
 
-[node name="UIController" type="Node2D" parent="."]
+[node name="TileClickController" type="Node2D" parent="."]
 script = ExtResource("7_2rcum")
 
-[node name="BuyMenu" parent="UIController" instance=ExtResource("8_rwyyp")]
+[node name="BuyMenu" parent="TileClickController" instance=ExtResource("8_rwyyp")]
+visible = false
 
 [node name="BuildingController" type="Node2D" parent="."]
 script = ExtResource("9_4t46y")
 
-[node name="MainUI" type="CanvasLayer" parent="."]
+[node name="OverlayUI" type="CanvasLayer" parent="."]
 
-[node name="Bubble" type="Sprite2D" parent="MainUI"]
+[node name="Bubble" type="Sprite2D" parent="OverlayUI"]
 modulate = Color(1, 1, 1, 0.784314)
 position = Vector2(8, 12)
 scale = Vector2(1.2, 1.688)
@@ -95,7 +96,7 @@ texture = ExtResource("11_xp85h")
 centered = false
 script = ExtResource("12_my5aw")
 
-[node name="Control" type="Control" parent="MainUI"]
+[node name="Control" type="Control" parent="OverlayUI"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 15.0
@@ -103,12 +104,12 @@ offset_top = 20.0
 offset_right = 15.0
 offset_bottom = 60.0
 
-[node name="Sun" type="Sprite2D" parent="MainUI/Control"]
+[node name="Sun" type="Sprite2D" parent="OverlayUI/Control"]
 position = Vector2(18, 18)
 scale = Vector2(2.375, 2.375)
 texture = ExtResource("13_ftsqr")
 
-[node name="SunlightLabel" type="Label" parent="MainUI/Control"]
+[node name="SunlightLabel" type="Label" parent="OverlayUI/Control"]
 layout_mode = 2
 offset_left = 52.0
 offset_top = 3.5
@@ -125,12 +126,6 @@ text = "0"
 vertical_alignment = 1
 script = ExtResource("13_fqykk")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainUI"]
-offset_left = 15.0
-offset_top = 20.0
-offset_right = 98.0
-offset_bottom = 60.0
-
 [node name="Spawner" type="Marker2D" parent="."]
 position = Vector2(758, 744)
 script = ExtResource("10_t0iqe")
@@ -138,7 +133,7 @@ script = ExtResource("10_t0iqe")
 [node name="WaveTimer" type="Timer" parent="Spawner"]
 wait_time = 3.0
 
-[connection signal="tile_map_clicked" from="TileMap" to="UIController" method="_on_tile_map_tile_map_clicked"]
-[connection signal="id_pressed" from="UIController/BuyMenu" to="BuildingController" method="_on_buy_menu_id_pressed"]
-[connection signal="sunlight_text_max_changed" from="MainUI/Control/SunlightLabel" to="MainUI/Bubble" method="_on_sunlight_label_sunlight_text_max_changed"]
+[connection signal="tile_map_clicked" from="TileMap" to="TileClickController" method="_on_tile_map_tile_map_clicked"]
+[connection signal="id_pressed" from="TileClickController/BuyMenu" to="BuildingController" method="_on_buy_menu_id_pressed"]
+[connection signal="sunlight_text_max_changed" from="OverlayUI/Control/SunlightLabel" to="OverlayUI/Bubble" method="_on_sunlight_label_sunlight_text_max_changed"]
 [connection signal="timeout" from="Spawner/WaveTimer" to="Spawner" method="_on_wave_timer_timeout"]
