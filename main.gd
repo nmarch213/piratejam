@@ -3,14 +3,15 @@ class_name Main
 
 
 @onready var tile_map = $TileMap;
-@export var tree: MotherTree
+@onready var mother_tree = $MotherTree
 
 var sapling: PackedScene = preload("res://tree/towers/sapling/sapling.tscn")
-
 var astar_grid: AStarGrid2D
+var mother_tree_global_position: Vector2 = Vector2(0, 0)
 
 func _ready():
 	_setup_astargrid()
+	mother_tree_global_position = mother_tree.global_position
 
 
 func _setup_astargrid():
@@ -38,7 +39,7 @@ func add_tower_to_grid(tower_pos: Vector2) -> void:
 func get_enemy_path(enemy_pos: Vector2) -> Array[Vector2i]:
 	var path := astar_grid.get_id_path(
 			tile_map.local_to_map(enemy_pos),
-			tile_map.local_to_map(tree.global_position),
+			tile_map.local_to_map(mother_tree_global_position),
 		)
 
 	return path

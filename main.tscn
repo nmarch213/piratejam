@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://du4c1rjta3ewr" path="res://tree/towers/thorn/thorn.tscn" id="5_omomg"]
 [ext_resource type="Script" path="res://TileMap.gd" id="6_4650s"]
 [ext_resource type="PackedScene" uid="uid://bsriofwcq48sj" path="res://tree/towers/sapling/sapling.tscn" id="6_moqds"]
-[ext_resource type="Script" path="res://UIController.gd" id="7_2rcum"]
+[ext_resource type="Script" path="res://TileClickController.gd" id="8_0ygdh"]
 [ext_resource type="PackedScene" uid="uid://dtwfw8ksgubyu" path="res://ui/buy_menu/buy_menu.tscn" id="8_rwyyp"]
 [ext_resource type="Script" path="res://BuildingController.gd" id="9_4t46y"]
 [ext_resource type="Script" path="res://Spawner.gd" id="10_t0iqe"]
@@ -50,12 +50,11 @@ sources/3 = SubResource("TileSetScenesCollectionSource_dfxfv")
 sources/4 = SubResource("TileSetAtlasSource_3sikg")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [4, Vector2i(0, 0)], [1, Vector2i(0, 0)], [4, Vector2i(1, 0)], [2, Vector2i(0, 0)], [4, Vector2i(2, 0)]]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("tree")]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_l6jnq")
-tree = NodePath("MotherTree")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-position = Vector2(584, 335)
+position = Vector2(1192, 711)
 script = ExtResource("2_owgi6")
 
 [node name="MotherTree" parent="." instance=ExtResource("3_gu0s8")]
@@ -78,7 +77,7 @@ layer_3/tile_data = PackedInt32Array()
 script = ExtResource("6_4650s")
 
 [node name="TileClickController" type="Node2D" parent="."]
-script = ExtResource("7_2rcum")
+script = ExtResource("8_0ygdh")
 
 [node name="BuyMenu" parent="TileClickController" instance=ExtResource("8_rwyyp")]
 visible = false
