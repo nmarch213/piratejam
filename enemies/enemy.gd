@@ -13,40 +13,22 @@ var is_moving = false
 @export var speed = 1
 @export var damage = 10
 
-func _process(_delta):
-	if is_moving:
-		return
-
+func _physics_process(delta):
 	move()
-
 func move():
 	var path := main_scene.get_enemy_path(global_position)
-		
 	path.pop_front()
 
 	if path.is_empty():
 		queue_free()
 		return
 
-	var original_pos = global_position;
-	for i in speed:
-		global_position = tile_map.map_to_local(path.front())
-	sprite.global_position =  original_pos
+	var new_pos = tile_map.map_to_local(path.front())
+	global_position = global_position.move_toward(new_pos, speed)
 
-	is_moving = true
 
-func _physics_process(_delta):
-	if is_moving:
-		sprite.global_position = sprite.global_position.move_toward(global_position, 1)
-
-	if sprite.global_position != global_position:
-		return
-
-	is_moving = false
 
 func damage_mother_tree() -> void:
 	if mother_tree:
 		mother_tree.health_component.take_damage(damage)
 		queue_free()
-
-
