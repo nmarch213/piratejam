@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dthcr7jifvtx8"]
+
+[ext_resource type="Texture2D" uid="uid://dmb8njqpnwvis" path="res://assets/bubble.png" id="1_iovt6"]
+[ext_resource type="Script" path="res://Bubble.gd" id="2_5usej"]
+[ext_resource type="Texture2D" uid="uid://djpg6ovdth1gj" path="res://assets/sun.png" id="3_rsl1m"]
+[ext_resource type="FontFile" uid="uid://beaps4f41mg6p" path="res://assets/NovaScript-Regular.ttf" id="4_52irq"]
+[ext_resource type="Script" path="res://SunlightLabel.gd" id="5_oe7h2"]
+
+[node name="OverlayUI" type="CanvasLayer"]
+
+[node name="Bubble" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(8, 12)
+scale = Vector2(1.2, 1.688)
+texture = ExtResource("1_iovt6")
+centered = false
+script = ExtResource("2_5usej")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 15.0
+offset_bottom = 60.0
+
+[node name="Sun" type="Sprite2D" parent="Control"]
+position = Vector2(18, 18)
+scale = Vector2(2.375, 2.375)
+texture = ExtResource("3_rsl1m")
+
+[node name="SunlightLabel" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 52.0
+offset_top = 3.5
+offset_right = 66.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_52irq")
+theme_override_font_sizes/font_size = 20
+text = "0"
+vertical_alignment = 1
+script = ExtResource("5_oe7h2")
+
+[connection signal="sunlight_text_max_changed" from="Control/SunlightLabel" to="Bubble" method="_on_sunlight_label_sunlight_text_max_changed"]
