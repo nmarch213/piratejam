@@ -9,4 +9,8 @@ script = ExtResource("1_urtf3")
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
