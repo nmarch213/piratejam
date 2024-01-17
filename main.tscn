@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=16 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l6jnq"]
 [ext_resource type="PackedScene" uid="uid://ltmp2ee8jmru" path="res://core/camera/player_camera.tscn" id="2_5y4le"]
@@ -7,10 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://du4c1rjta3ewr" path="res://tree/towers/thorn/thorn.tscn" id="5_omomg"]
 [ext_resource type="Script" path="res://core/tilemap/TileMap.gd" id="6_4650s"]
 [ext_resource type="PackedScene" uid="uid://bsriofwcq48sj" path="res://tree/towers/sapling/sapling.tscn" id="6_moqds"]
-[ext_resource type="Script" path="res://TileClickController.gd" id="8_0ygdh"]
-[ext_resource type="PackedScene" uid="uid://dtwfw8ksgubyu" path="res://ui/buy_menu/buy_menu.tscn" id="8_rwyyp"]
 [ext_resource type="PackedScene" uid="uid://dtg1nbj1p5i5q" path="res://core/building/building_controller.tscn" id="10_i0iuh"]
-[ext_resource type="Script" path="res://Spawner.gd" id="10_t0iqe"]
+[ext_resource type="PackedScene" uid="uid://kjukeki4xp0u" path="res://core/spawner/spawner.tscn" id="10_rl5k3"]
+[ext_resource type="PackedScene" uid="uid://di3wfpwy40eir" path="res://core/building/tile_click_controller.tscn" id="11_xa3uc"]
 [ext_resource type="PackedScene" uid="uid://dthcr7jifvtx8" path="res://ui/overlay_ui.tscn" id="12_prmxn"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dfxfv"]
@@ -70,22 +69,12 @@ layer_3/name = "building grid"
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("6_4650s")
 
-[node name="TileClickController" type="Node2D" parent="."]
-script = ExtResource("8_0ygdh")
-
-[node name="BuyMenu" parent="TileClickController" instance=ExtResource("8_rwyyp")]
-
-[node name="Spawner" type="Marker2D" parent="."]
-position = Vector2(758, 744)
-script = ExtResource("10_t0iqe")
-
-[node name="WaveTimer" type="Timer" parent="Spawner"]
-wait_time = 3.0
+[node name="Spawner" parent="." instance=ExtResource("10_rl5k3")]
 
 [node name="OverlayUI" parent="." instance=ExtResource("12_prmxn")]
 
 [node name="BuildingController" parent="." instance=ExtResource("10_i0iuh")]
 position = Vector2(667, 781)
 
-[connection signal="tile_map_clicked" from="TileMap" to="TileClickController" method="_on_tile_map_tile_map_clicked"]
-[connection signal="timeout" from="Spawner/WaveTimer" to="Spawner" method="_on_wave_timer_timeout"]
+[node name="TileClickController" parent="." instance=ExtResource("11_xa3uc")]
+position = Vector2(431, 736)

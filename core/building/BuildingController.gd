@@ -15,7 +15,6 @@ func _ready():
 
 
 func _on_buy_menu_id_pressed(id):
-	print("buy menu id pressed: ", id)
 	# if the user clicked sapling in the menu
 	if SunlightManager.is_affordable(costs[id]):
 		SunlightManager.spend_sunlight(costs[id])
