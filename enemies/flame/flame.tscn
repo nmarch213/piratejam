@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bakmt7406nsf5"]
+
+[ext_resource type="Script" path="res://enemies/flame/flame.gd" id="1_5sr82"]
+[ext_resource type="Script" path="res://components/HitboxComponent.gd" id="2_daswi"]
+[ext_resource type="Texture2D" uid="uid://cx6px76org0nq" path="res://enemies/flame/flame.png" id="2_t6wau"]
+[ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="3_uc0o6"]
+[ext_resource type="Script" path="res://components/EnemyNavigationComponent.gd" id="4_nmmoa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r232v"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ww6sa"]
+radius = 18.0278
+
+[node name="Flame" type="CharacterBody2D"]
+script = ExtResource("1_5sr82")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_t6wau")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+script = ExtResource("2_daswi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(-1, 5)
+shape = SubResource("CircleShape2D_r232v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ww6sa")
+
+[node name="RespawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_uc0o6")]
+position = Vector2(-10, -23)
+scale = Vector2(0.105, 0.705)
+MAX_HEALTH = 5
+
+[node name="EnemyNavigationComponent" type="NavigationAgent2D" parent="."]
+path_max_distance = 20000.0
+navigation_layers = 3
+avoidance_enabled = true
+radius = 20.0
+max_neighbors = 200
+avoidance_layers = 3
+avoidance_mask = 3
+debug_enabled = true
+script = ExtResource("4_nmmoa")
