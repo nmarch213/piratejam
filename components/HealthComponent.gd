@@ -5,6 +5,8 @@ class_name HealthComponent
 @onready var health_bar = $HealthBar
 @onready var damage_bar = $HealthBar/DamageBar
 
+signal death
+
 @export var MAX_HEALTH = 10
 var health: float : set = _set_health
 
@@ -32,6 +34,7 @@ func take_damage(dmg: float):
 	health_bar.value = health
 	damage_bar.value = dmg
 	if health <= 0:
+		death.emit()
 		get_parent().queue_free()
 	health_bar.show()
 		

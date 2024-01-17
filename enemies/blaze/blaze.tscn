@@ -51,3 +51,4 @@ debug_enabled = true
 script = ExtResource("5_wdioc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

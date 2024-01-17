@@ -10,6 +10,7 @@ class_name Enemy
 var astar_grid: AStarGrid2D
 var is_moving = false
 
+@export var speed = 1
 @export var damage = 10
 
 func _process(_delta):
@@ -28,7 +29,8 @@ func move():
 		return
 
 	var original_pos = global_position;
-	global_position = tile_map.map_to_local(path.front())
+	for i in speed:
+		global_position = tile_map.map_to_local(path.front())
 	sprite.global_position =  original_pos
 
 	is_moving = true
