@@ -8,7 +8,10 @@ var costs = {
 @onready var tile_map = $"../TileMap"
 @onready var main = $".."
 @onready var tile_click_controller = $"../TileClickController"
+@onready var buy_menu = $"../TileClickController/BuyMenu"
 
+func _ready():
+	buy_menu.id_pressed.connect(_on_buy_menu_id_pressed)
 
 
 func _on_buy_menu_id_pressed(id):
@@ -22,6 +25,7 @@ func _on_buy_menu_id_pressed(id):
 	
 	
 func place_sapling_tower(cell_clicked_position: Vector2i) -> void:
+	print("placing sapling tower")
 	tile_map.set_cell(tile_map.LAYER.TOWERS, cell_clicked_position, 3, Vector2(0,0), 1)
 	main.astar_grid.set_point_solid(cell_clicked_position, true)
 	spread_grass(cell_clicked_position)

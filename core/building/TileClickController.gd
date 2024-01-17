@@ -2,11 +2,12 @@ extends Node2D
 
 var latest_cell_clicked: Vector2i = Vector2i(-1, -1)
 @onready var buy_menu: PopupMenu = get_node("BuyMenu")
-@onready var tile_map = $"../TileMap"
+@onready var tile_map: TileMap = $"../TileMap"
 var mother_tree_positions = []
 var tower_positions = []
 
 func _ready():
+	tile_map.tile_map_clicked.connect(_on_tile_map_tile_map_clicked)
 	var mother_tree_coords = tile_map.local_to_map($"../MotherTree".position)
 	mother_tree_positions.append(Vector2(mother_tree_coords))
 	mother_tree_positions.append_array(tile_map.get_surrounding_cells(mother_tree_coords).map(to_vector2))

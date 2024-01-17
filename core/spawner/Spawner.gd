@@ -20,7 +20,6 @@ func spawn_wave_1():
 		get_parent().add_child(enemy)
 
 func _on_wave_timer_timeout():
-	print("wave timer")
 	current_wave += 1
 	match current_wave:
 		0:
