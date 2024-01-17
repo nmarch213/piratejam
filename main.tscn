@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bsriofwcq48sj" path="res://tree/towers/sapling/sapling.tscn" id="6_moqds"]
 [ext_resource type="Script" path="res://TileClickController.gd" id="8_0ygdh"]
 [ext_resource type="PackedScene" uid="uid://dtwfw8ksgubyu" path="res://ui/buy_menu/buy_menu.tscn" id="8_rwyyp"]
-[ext_resource type="Script" path="res://BuildingController.gd" id="9_4t46y"]
+[ext_resource type="PackedScene" uid="uid://dtg1nbj1p5i5q" path="res://core/building/building_controller.tscn" id="10_i0iuh"]
 [ext_resource type="Script" path="res://Spawner.gd" id="10_t0iqe"]
-[ext_resource type="PackedScene" path="res://ui/overlay_ui.tscn" id="12_prmxn"]
+[ext_resource type="PackedScene" uid="uid://dthcr7jifvtx8" path="res://ui/overlay_ui.tscn" id="12_prmxn"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dfxfv"]
 resource_name = "towers"
@@ -74,10 +74,6 @@ script = ExtResource("6_4650s")
 script = ExtResource("8_0ygdh")
 
 [node name="BuyMenu" parent="TileClickController" instance=ExtResource("8_rwyyp")]
-visible = false
-
-[node name="BuildingController" type="Node2D" parent="."]
-script = ExtResource("9_4t46y")
 
 [node name="Spawner" type="Marker2D" parent="."]
 position = Vector2(758, 744)
@@ -88,6 +84,8 @@ wait_time = 3.0
 
 [node name="OverlayUI" parent="." instance=ExtResource("12_prmxn")]
 
+[node name="BuildingController" parent="." instance=ExtResource("10_i0iuh")]
+position = Vector2(667, 781)
+
 [connection signal="tile_map_clicked" from="TileMap" to="TileClickController" method="_on_tile_map_tile_map_clicked"]
-[connection signal="id_pressed" from="TileClickController/BuyMenu" to="BuildingController" method="_on_buy_menu_id_pressed"]
 [connection signal="timeout" from="Spawner/WaveTimer" to="Spawner" method="_on_wave_timer_timeout"]
