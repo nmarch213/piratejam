@@ -1,6 +1,6 @@
 extends Marker2D
 
-var ember: PackedScene = preload("res://enemies/ember/Ember.tscn")
+var blaze: PackedScene = preload("res://enemies/blaze/Blaze.tscn")
 @onready var wave_timer: Timer = $WaveTimer;
 
 var current_wave = 0
@@ -14,7 +14,7 @@ func spawn_wave_1():
 	var total_enemies = 5
 
 	for e in total_enemies:
-		var enemy = ember.instantiate()
+		var enemy = blaze.instantiate()
 		enemy.position = global_position
 		await get_tree().create_timer(.3).timeout
 		get_parent().add_child(enemy)
