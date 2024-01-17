@@ -21,11 +21,11 @@ func spawn_wave_1():
 	var flames = wave_strength - (blazes * 2)
 	for a_blaze in blazes:
 		spawn_enemy(blaze)
-		await get_tree().create_timer(.3).timeout
+		await $SpawnTimer.timeout
 
 	for a_flame in flames:
 		spawn_enemy(flame)
-		await get_tree().create_timer(.3).timeout
+		await $SpawnTimer.timeout
 		
 func spawn_enemy(enemy_type: PackedScene):
 	var enemy = enemy_type.instantiate()

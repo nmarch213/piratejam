@@ -1,12 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://dthcr7jifvtx8"]
+[gd_scene load_steps=10 format=3 uid="uid://dthcr7jifvtx8"]
 
 [ext_resource type="Texture2D" uid="uid://dmb8njqpnwvis" path="res://assets/bubble.png" id="1_iovt6"]
 [ext_resource type="Script" path="res://Bubble.gd" id="2_5usej"]
 [ext_resource type="Texture2D" uid="uid://djpg6ovdth1gj" path="res://assets/sun.png" id="3_rsl1m"]
 [ext_resource type="FontFile" uid="uid://beaps4f41mg6p" path="res://assets/NovaScript-Regular.ttf" id="4_52irq"]
 [ext_resource type="Script" path="res://SunlightLabel.gd" id="5_oe7h2"]
+[ext_resource type="Texture2D" uid="uid://b7voagptl20d7" path="res://assets/pause_button.png" id="6_jfonn"]
+[ext_resource type="Script" path="res://ui/PauseMenu.gd" id="7_k6h16"]
+
+[sub_resource type="GDScript" id="GDScript_acig2"]
+
+[sub_resource type="GDScript" id="GDScript_d60ql"]
 
 [node name="OverlayUI" type="CanvasLayer"]
+script = SubResource("GDScript_acig2")
+
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("7_k6h16")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.184314, 0.184314, 0.807843)
 
 [node name="Bubble" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.784314)
@@ -45,5 +73,25 @@ theme_override_font_sizes/font_size = 20
 text = "0"
 vertical_alignment = 1
 script = ExtResource("5_oe7h2")
+
+[node name="PauseContainer" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -77.0
+offset_top = 25.0
+offset_right = -5.0
+offset_bottom = 97.0
+grow_horizontal = 0
+scale = Vector2(0.7, 0.7)
+
+[node name="PauseButton" type="Button" parent="PauseContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 2
+theme_type_variation = &"FlatButton"
+icon = ExtResource("6_jfonn")
+script = SubResource("GDScript_d60ql")
 
 [connection signal="sunlight_text_max_changed" from="Control/SunlightLabel" to="Bubble" method="_on_sunlight_label_sunlight_text_max_changed"]
