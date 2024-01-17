@@ -2,9 +2,10 @@ extends BaseTree
 class_name MotherTree
 
 @onready var health_component = $HealthComponent
-
+@onready var animation_player = $Sprite2D/AnimationPlayer
 func _ready():
 	sunlight_per_second = 5
+	animation_player.play("default")
 
 func _on_area_2d_body_entered(body:Node2D):
 	if body.is_in_group("Enemy"):

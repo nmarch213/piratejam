@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c3x3kc0fdq5ef"
+path="res://.godot/imported/mothertree.aseprite-0b447ab87da720bb3b8833fc10ec7ea2.res"
+
+[deps]
+
+source_file="res://enemies/mothertree.aseprite"
+dest_files=["res://.godot/imported/mothertree.aseprite-0b447ab87da720bb3b8833fc10ec7ea2.res"]
+
+[params]
+
