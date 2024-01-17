@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_l6jnq"]
 [ext_resource type="PackedScene" uid="uid://ltmp2ee8jmru" path="res://core/camera/player_camera.tscn" id="2_5y4le"]
 [ext_resource type="PackedScene" uid="uid://bkthjsnqioj06" path="res://tree/MotherTree.tscn" id="3_gu0s8"]
-[ext_resource type="Texture2D" uid="uid://cp3gbwlvw3fxu" path="res://tilemap.png" id="4_xhmo5"]
+[ext_resource type="Texture2D" uid="uid://cp3gbwlvw3fxu" path="res://core/tilemap/tilemap.png" id="4_xhmo5"]
 [ext_resource type="PackedScene" uid="uid://du4c1rjta3ewr" path="res://tree/towers/thorn/thorn.tscn" id="5_omomg"]
 [ext_resource type="Script" path="res://core/tilemap/TileMap.gd" id="6_4650s"]
 [ext_resource type="PackedScene" uid="uid://bsriofwcq48sj" path="res://tree/towers/sapling/sapling.tscn" id="6_moqds"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dtwfw8ksgubyu" path="res://ui/buy_menu/buy_menu.tscn" id="8_rwyyp"]
 [ext_resource type="Script" path="res://BuildingController.gd" id="9_4t46y"]
 [ext_resource type="Script" path="res://Spawner.gd" id="10_t0iqe"]
-[ext_resource type="PackedScene" uid="uid://dthcr7jifvtx8" path="res://ui/overlay_ui.tscn" id="12_prmxn"]
+[ext_resource type="PackedScene" path="res://ui/overlay_ui.tscn" id="12_prmxn"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dfxfv"]
 resource_name = "towers"

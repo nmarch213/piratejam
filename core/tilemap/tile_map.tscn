@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bsriofwcq48sj" path="res://tree/towers/sapling/sapling.tscn" id="1_w4eju"]
 [ext_resource type="PackedScene" uid="uid://du4c1rjta3ewr" path="res://tree/towers/thorn/thorn.tscn" id="2_ygfri"]
-[ext_resource type="Texture2D" uid="uid://cp3gbwlvw3fxu" path="res://tilemap.png" id="3_tlmmm"]
+[ext_resource type="Texture2D" uid="uid://cp3gbwlvw3fxu" path="res://core/tilemap/tilemap.png" id="3_tlmmm"]
 [ext_resource type="Script" path="res://core/tilemap/TileMap.gd" id="4_rbi1l"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dfxfv"]
