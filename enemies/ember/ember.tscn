@@ -34,7 +34,7 @@ autostart = true
 [node name="HealthComponent" parent="." instance=ExtResource("4_nu8fl")]
 position = Vector2(-10, -23)
 scale = Vector2(0.105, 0.705)
-MAX_HEALTH = 100
+MAX_HEALTH = 5
 
 [node name="EnemyNavigationComponent" type="NavigationAgent2D" parent="."]
 path_max_distance = 20000.0
