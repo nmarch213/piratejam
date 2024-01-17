@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsccnc2tfesro"]
+
+[ext_resource type="Script" path="res://enemies/ember/ember.gd" id="1_hcy73"]
+[ext_resource type="Texture2D" uid="uid://cq1473oe05hqg" path="res://enemies/ember/ember.png" id="2_ixkvv"]
+[ext_resource type="Script" path="res://components/HitboxComponent.gd" id="3_lvl4q"]
+[ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="4_nu8fl"]
+[ext_resource type="Script" path="res://components/EnemyNavigationComponent.gd" id="5_kxge4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mkvj6"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7bcfy"]
+radius = 18.0278
+
+[node name="Ember" type="CharacterBody2D"]
+script = ExtResource("1_hcy73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ixkvv")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+script = ExtResource("3_lvl4q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(-1, 5)
+shape = SubResource("CircleShape2D_mkvj6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7bcfy")
+
+[node name="RespawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_nu8fl")]
+position = Vector2(-10, -23)
+scale = Vector2(0.105, 0.705)
+MAX_HEALTH = 100
+
+[node name="EnemyNavigationComponent" type="NavigationAgent2D" parent="."]
+path_max_distance = 20000.0
+navigation_layers = 3
+avoidance_enabled = true
+radius = 20.0
+max_neighbors = 200
+avoidance_layers = 3
+avoidance_mask = 3
+debug_enabled = true
+script = ExtResource("5_kxge4")
+
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
