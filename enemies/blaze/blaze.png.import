@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jpf5vp12pqh2"
-path="res://.godot/imported/ember.png-38a2bb8d8cf98e1bf2df98c68d1fe1b4.ctex"
+path="res://.godot/imported/blaze.png-bc2a919d682f028cc7221a0ab5bd5abd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/ember/ember.png"
-dest_files=["res://.godot/imported/ember.png-38a2bb8d8cf98e1bf2df98c68d1fe1b4.ctex"]
+source_file="res://enemies/blaze/blaze.png"
+dest_files=["res://.godot/imported/blaze.png-bc2a919d682f028cc7221a0ab5bd5abd.ctex"]
 
 [params]
 
