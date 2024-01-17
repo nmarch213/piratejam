@@ -16,7 +16,7 @@ func spawn_wave_1():
 	for e in total_enemies:
 		var enemy = blaze.instantiate()
 		enemy.position = global_position
-		await get_tree().create_timer(.3).timeout
+		await $SpawnTimer.timeout
 		get_parent().add_child(enemy)
 
 func _on_wave_timer_timeout():
