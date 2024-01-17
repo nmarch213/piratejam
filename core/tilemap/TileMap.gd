@@ -7,6 +7,8 @@ enum LAYER {
 	GRID = 3,
 }
 
+const GRASS_ATLAS_COORDS = Vector2i(0,0)
+
 signal tile_map_clicked(cell_clicked_position: Vector2i, event_position: Vector2)
 
 func _process(_delta):

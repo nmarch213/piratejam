@@ -8,6 +8,7 @@ var tower_positions = []
 
 func _ready():
 	tile_map.tile_map_clicked.connect(_on_tile_map_tile_map_clicked)
+	buy_menu.hide()
 	var mother_tree_coords = tile_map.local_to_map($"../MotherTree".position)
 	mother_tree_positions.append(Vector2(mother_tree_coords))
 	mother_tree_positions.append_array(tile_map.get_surrounding_cells(mother_tree_coords).map(to_vector2))
@@ -18,7 +19,7 @@ func _on_tile_map_tile_map_clicked(cell_clicked_position: Vector2i, event_positi
 		pass #TODO: mother tree upgrades?
 	elif tower_positions.has(cell_clicked_position):
 		pass #TODO: upgrade menu / select the tower
-	elif within_two_spaces_of_existing_tower(cell_clicked_position):
+	elif tile_map.get_cell_atlas_coords(tile_map.LAYER.BASE, cell_clicked_position) == tile_map.GRASS_ATLAS_COORDS:
 		buy_menu.position = event_position
 		buy_menu.show()
 		latest_cell_clicked = cell_clicked_position	
