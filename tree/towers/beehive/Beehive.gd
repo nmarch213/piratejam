@@ -6,3 +6,4 @@ class_name Beehive
 
 func _load_bullet():
 	attack_component.bullet = bullet;
+	attack_component.attack_speed = 5

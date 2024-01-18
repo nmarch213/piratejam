@@ -16,7 +16,6 @@ func _ready():
 	_load_bullet()
 
 func _on_sun_timer_timeout():
-	print("sunlight timer timeout")
 	if $HealthComponent.is_full_health():
 		SunlightManager.bank_sunlight(sunlight_per_second)
 	else:

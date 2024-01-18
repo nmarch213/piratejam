@@ -3,7 +3,7 @@ class_name Bullet
 
 var speed = 1000 
 var target: Enemy = null
-var bullet_damage = 1
+var bullet_damage: int = 1
 var cleanup_bullet = false
 
 func _physics_process(delta):

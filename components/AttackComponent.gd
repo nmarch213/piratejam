@@ -3,7 +3,7 @@ class_name AttackComponent
 
 var bullet: PackedScene;
 @export var attack_damage = 1
-@export var attack_speed = .1
+@export var attack_speed = 1
 @export var attack_range = 100
 @export var crit_chance = 0
 @export var aoe = 0
@@ -45,12 +45,6 @@ func _on_range_body_exited(body):
 		if body in enemies_in_range:
 			enemies_in_range.erase(body)
 
-func _attack(enemy: Enemy):
-	var damage = attack_damage
-	if randf() < crit_chance:
-		damage *= 2
-	enemy.healthComponent.take_damage(damage)
-
 func _setup_attack_timer():
 	timer = Timer.new()
 	timer.wait_time = attack_speed
@@ -60,7 +54,6 @@ func _setup_attack_timer():
 
 func _on_timer_timeout():
 	if enemies_in_range.size() > 0:
-		# _attack(enemies_in_range[0])
 		shoot_bullet_at_enemy(enemies_in_range[0])
 
 func shoot_bullet_at_enemy(body: Enemy):
