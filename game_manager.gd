@@ -8,7 +8,6 @@ extends Node2D
 func _ready():
 	game_over_screen.hide()
 	mother_tree.tree_exited.connect(_on_mother_tree_exited)
-	print("in")
 	
 	
 func _on_mother_tree_exited():

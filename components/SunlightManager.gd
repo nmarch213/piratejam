@@ -1,6 +1,7 @@
 extends Control
 
-var sunlight_banked = 1000
+var starting_sunlight_banked = 1000
+var sunlight_banked = starting_sunlight_banked
 
 func bank_sunlight(amount):
 	sunlight_banked += amount
