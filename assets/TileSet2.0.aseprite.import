@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bw78x0j3xtfpq"
+path="res://.godot/imported/TileSet2.0.aseprite-e8948f26601649e128c65636e95bdafe.res"
+
+[deps]
+
+source_file="res://assets/TileSet2.0.aseprite"
+dest_files=["res://.godot/imported/TileSet2.0.aseprite-e8948f26601649e128c65636e95bdafe.res"]
+
+[params]
+
