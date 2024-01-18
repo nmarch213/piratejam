@@ -50,3 +50,5 @@ func is_full_health():
 func _on_timer_timeout():
 	damage_bar.value = health
 
+func heal_full():
+	heal(MAX_HEALTH)

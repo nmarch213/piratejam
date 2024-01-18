@@ -33,3 +33,7 @@ func damage_mother_tree() -> void:
 	if mother_tree:
 		mother_tree.health_component.take_damage(damage)
 		queue_free()
+		
+func heal_full():
+	if $HealthComponent:
+		$HealthComponent.heal_full()
