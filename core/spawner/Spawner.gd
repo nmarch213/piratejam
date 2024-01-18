@@ -3,6 +3,7 @@ extends Marker2D
 var blaze: PackedScene = preload("res://enemies/blaze/Blaze.tscn")
 var flame: PackedScene = preload("res://enemies/flame/flame.tscn")
 var smoke_cloud: PackedScene = preload("res://enemies/smoke_cloud/smoke_cloud.tscn")
+var lava_elemental: PackedScene = preload("res://enemies/lava_elemental/lava_elemental.tscn")
 
 @onready var wave_timer: Timer = $WaveTimer;
 
@@ -10,11 +11,9 @@ var current_wave = 0
 
 func _ready():
 	wave_timer.start()
-	
-
 
 func spawn_wave_1():
-	var wave_strength = 10
+	var wave_strength = 5
 	# cloud str = 2
 	# blaze str = 2
 	# flame = 1
@@ -48,13 +47,7 @@ func spawn_enemy(enemy_type: PackedScene):
 func _on_wave_timer_timeout():
 	current_wave += 1
 	match current_wave:
-		0:
-			spawn_wave_1()
 		1:
-			spawn_wave_1()
-		2:
-			spawn_wave_1()
-		3:
-			spawn_wave_1()
-		4:
+			spawn_enemy(lava_elemental)
+		_:
 			spawn_wave_1()
