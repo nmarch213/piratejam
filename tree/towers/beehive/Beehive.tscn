@@ -36,4 +36,6 @@ scale = Vector2(0.165, 0.75)
 
 [node name="AttackComponent" parent="." instance=ExtResource("4_b1vt6")]
 position = Vector2(-59, -10)
-attack_speed = 2.0
+attack_damage = 5
+attack_speed = 1.0
+attack_range = 200

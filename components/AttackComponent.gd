@@ -19,7 +19,7 @@ func _ready():
 	create_attack_range()
 	_setup_attack_timer()
 	bullet_container = Node2D.new()
-	bullet_container.name = "EnemyContainer"
+	bullet_container.name = "Bullets"
 	add_child(bullet_container)
 
 func create_attack_range():
