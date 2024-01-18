@@ -15,6 +15,7 @@ var is_moving = false
 
 func _physics_process(delta):
 	move()
+
 func move():
 	var path := main_scene.get_enemy_path(global_position)
 	path.pop_front()

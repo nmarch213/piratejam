@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://bx0xooih3pjjq"]
+
+[ext_resource type="Script" path="res://enemies/smoke_cloud/smoke_cloud.gd" id="1_6f2lt"]
+[ext_resource type="Texture2D" uid="uid://bhwqph7itswsq" path="res://enemies/smoke_cloud/smoke_cloud.png" id="2_p6ipa"]
+[ext_resource type="Script" path="res://components/HitboxComponent.gd" id="2_x21ae"]
+[ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="3_cyfeo"]
+[ext_resource type="Script" path="res://components/EnemyNavigationComponent.gd" id="4_lnk47"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmq6j"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_40ulp"]
+radius = 18.0278
+
+[node name="smoke_cloud" type="CharacterBody2D"]
+script = ExtResource("1_6f2lt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.843137)
+texture = ExtResource("2_p6ipa")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": ""
+}
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+script = ExtResource("2_x21ae")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(-1, 5)
+shape = SubResource("CircleShape2D_xmq6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_40ulp")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_cyfeo")]
+position = Vector2(-10, -23)
+scale = Vector2(0.105, 0.705)
+MAX_HEALTH = 15
+
+[node name="EnemyNavigationComponent" type="NavigationAgent2D" parent="."]
+path_max_distance = 20000.0
+navigation_layers = 3
+avoidance_enabled = true
+radius = 20.0
+max_neighbors = 200
+avoidance_layers = 3
+avoidance_mask = 3
+debug_enabled = true
+script = ExtResource("4_lnk47")
