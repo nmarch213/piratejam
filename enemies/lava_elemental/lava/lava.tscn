@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc2qlcq40au71"]
+
+[ext_resource type="Script" path="res://enemies/lava_elemental/lava/lava.gd" id="1_tf6gg"]
+[ext_resource type="Texture2D" uid="uid://d4k3qfvfg570c" path="res://enemies/lava_elemental/lava/lava.png" id="2_goewg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhyn7"]
+size = Vector2(16, 16)
+
+[node name="Lava" type="Area2D"]
+script = ExtResource("1_tf6gg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_goewg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dhyn7")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true

@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dp2n1ekvr2vqc"]
+
+[ext_resource type="Script" path="res://enemies/lava_elemental/lava_elemental.gd" id="1_6c4fu"]
+[ext_resource type="Texture2D" uid="uid://dj74cfy320p5w" path="res://enemies/lava_elemental/lava_elemental.png" id="2_bvva6"]
+[ext_resource type="Script" path="res://components/HitboxComponent.gd" id="2_xr3vp"]
+[ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="3_k1n76"]
+[ext_resource type="Script" path="res://components/EnemyNavigationComponent.gd" id="4_7c2s3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3h0n"]
+radius = 16.0
+height = 48.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxn3x"]
+radius = 15.6303
+height = 48.3845
+
+[node name="LavaElemental" type="CharacterBody2D"]
+position = Vector2(40, -24)
+script = ExtResource("1_6c4fu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bvva6")
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("2_xr3vp")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(-4, 3)
+rotation = 0.843839
+shape = SubResource("CapsuleShape2D_q3h0n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 3)
+rotation = 0.807536
+shape = SubResource("CapsuleShape2D_gxn3x")
+
+[node name="LavaTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_k1n76")]
+position = Vector2(-10, -23)
+scale = Vector2(0.105, 0.705)
+MAX_HEALTH = 100
+
+[node name="EnemyNavigationComponent" type="NavigationAgent2D" parent="."]
+path_max_distance = 20000.0
+navigation_layers = 3
+avoidance_enabled = true
+radius = 20.0
+max_neighbors = 200
+avoidance_layers = 3
+avoidance_mask = 3
+debug_enabled = true
+script = ExtResource("4_7c2s3")
