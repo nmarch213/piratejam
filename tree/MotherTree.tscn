@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkthjsnqioj06"]
+[gd_scene load_steps=9 format=3 uid="uid://bkthjsnqioj06"]
 
 [ext_resource type="Script" path="res://tree/MotherTree.gd" id="1_b78f8"]
 [ext_resource type="Texture2D" uid="uid://c3mnostnrcfes" path="res://tree/mothertree.png" id="2_8oc7a"]
 [ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="2_d184v"]
 
-[sub_resource type="Animation" id="Animation_et3et"]
+[sub_resource type="Animation" id="Animation_nc3bj"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_4tf0d"]
 length = 1.5
 loop_mode = 1
 tracks/0/type = "value"
@@ -70,7 +73,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jutfp"]
 _data = {
-"default": SubResource("Animation_et3et")
+"Idle": SubResource("Animation_nc3bj"),
+"default": SubResource("Animation_4tf0d")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c631j"]
@@ -92,7 +96,6 @@ texture_filter = 1
 texture = ExtResource("2_8oc7a")
 hframes = 3
 vframes = 2
-frame = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 0,
 "keep_anim_length": false,

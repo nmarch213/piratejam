@@ -12,6 +12,7 @@ script = ExtResource("1_5e8nv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(2, 2)
 texture = ExtResource("2_t57lc")
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
@@ -32,3 +33,5 @@ shape = SubResource("RectangleShape2D_khs1i")
 
 [node name="AttackComponent" parent="." instance=ExtResource("3_gvrtm")]
 position = Vector2(0, 1)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

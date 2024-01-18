@@ -1,7 +1,7 @@
-extends StaticBody2D
+extends BaseTree
+class_name Thorn
 
-var bullet = preload("res://tree/towers/thorn/thorn_bullet.tscn")
-@onready var attack_component: AttackComponent = $AttackComponent
+@onready var bullet = load("res://tree/towers/thorn/thorn_bullet.tscn")
 
-func _ready():
-	attack_component.bullet = bullet
+func _load_bullet():
+	attack_component.bullet = bullet;

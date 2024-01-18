@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bdu2c6epwr6eo"
+path="res://.godot/imported/beehive.aseprite-e2670c4d07615856e65690dd51200503.res"
+
+[deps]
+
+source_file="res://tree/towers/beehive/beehive.aseprite"
+dest_files=["res://.godot/imported/beehive.aseprite-e2670c4d07615856e65690dd51200503.res"]
+
+[params]
+
