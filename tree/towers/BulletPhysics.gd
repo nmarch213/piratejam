@@ -7,9 +7,7 @@ var bullet_damage: int = 1
 var cleanup_bullet = false
 
 func _physics_process(delta):
-	if !cleanup_bullet:
-		_destroy_bullet_after_seconds(3)
-		cleanup_bullet = true
+	_destory_bullet_if_no_target()
 	if not is_instance_valid(target):  
 		return
 	if target:
@@ -30,3 +28,7 @@ func _on_bullet_body_entered(body):
 		if body is Enemy:
 				body.healthComponent.take_damage(bullet_damage)
 				queue_free()
+
+func _destory_bullet_if_no_target():
+	if !is_instance_valid(target):
+		queue_free()
