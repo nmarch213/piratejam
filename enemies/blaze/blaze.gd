@@ -3,7 +3,7 @@ extends Enemy
 var ember: PackedScene = preload("res://enemies/ember/ember.tscn")
 
 func _ready():
-	speed = 0.75
+	speed = 1
 
 func _on_health_component_death():
 	var remains = ember.instantiate()

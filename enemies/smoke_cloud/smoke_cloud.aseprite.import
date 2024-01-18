@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://oem1rnjobua6"
+path="res://.godot/imported/smoke_cloud.aseprite-e2d4d1c587e646c416af4c7a2173b274.res"
+
+[deps]
+
+source_file="res://enemies/smoke_cloud/smoke_cloud.aseprite"
+dest_files=["res://.godot/imported/smoke_cloud.aseprite-e2d4d1c587e646c416af4c7a2173b274.res"]
+
+[params]
+
