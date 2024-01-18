@@ -3,9 +3,12 @@ extends Camera2D
 var dragging = false
 var drag_start
 var screen_start
+var can_move_camera = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
+	if !can_move_camera:
+		return
 	if event.is_action('right click'):
 		if event.is_pressed():
 			dragging = true
