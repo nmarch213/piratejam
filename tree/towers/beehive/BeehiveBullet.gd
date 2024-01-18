@@ -26,23 +26,28 @@ func _spawn_aoe_area(body: Enemy):
 	var collision = CollisionShape2D.new()
 	var shape = CircleShape2D.new()
 	var aoe_timer := Timer.new()
-	aoe_timer.set_wait_time(aoe_ttl)
 	aoe_timer.timeout.connect(_on_aoe_timout)
+	aoe_timer.set_wait_time(aoe_ttl)
 	aoe_timer.set_autostart(true)
-	aoe_area.add_child(aoe_timer)
+	aoe_timer.set_paused(false)
+	timer.set_one_shot(true)
 	shape.radius = aoe_radius
 	collision.shape = shape
 	aoe_area.body_entered.connect(_on_aoe_area_entered)
 	aoe_area.body_exited.connect(_on_aoe_area_exited)
 	aoe_area.monitoring = true
+
+	aoe_area.add_child(aoe_timer)
 	aoe_area.add_child(collision)
 	aoe_area.add_child(create_visual_representation())
+
 	get_tree().root.call_deferred("add_child", aoe_area)
 	aoe_area.global_position = body.global_position
 
 
 func _on_aoe_timout():
-	queue_free()
+	print("aoe timeout", aoe_area.name)
+	aoe_area.queue_free()
 
 func _on_aoe_area_entered(body):
 	if body is Enemy:
