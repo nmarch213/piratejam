@@ -13,7 +13,7 @@ var is_moving = false
 @export var speed = 1
 @export var damage = 10
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move()
 
 func move():

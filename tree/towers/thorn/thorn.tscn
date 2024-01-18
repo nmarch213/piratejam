@@ -1,17 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://du4c1rjta3ewr"]
+[gd_scene load_steps=6 format=3 uid="uid://du4c1rjta3ewr"]
 
 [ext_resource type="Script" path="res://tree/towers/thorn/thorn.gd" id="1_5e8nv"]
 [ext_resource type="Texture2D" uid="uid://c4xviaap1mv43" path="res://tree/towers/thorn/thorn.png" id="2_t57lc"]
 [ext_resource type="PackedScene" uid="uid://omkt3t2mm7vu" path="res://components/AttackComponent.tscn" id="3_gvrtm"]
+[ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="4_y2edh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khs1i"]
 size = Vector2(29, 27)
 
 [node name="Thorn" type="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_5e8nv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(2, 2)
 texture = ExtResource("2_t57lc")
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
@@ -32,3 +35,9 @@ shape = SubResource("RectangleShape2D_khs1i")
 
 [node name="AttackComponent" parent="." instance=ExtResource("3_gvrtm")]
 position = Vector2(0, 1)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_y2edh")]
+position = Vector2(-28, -36)
+scale = Vector2(0.275, 1)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

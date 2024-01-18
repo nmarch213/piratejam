@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1x8rqejgx54b"]
+
+[ext_resource type="Texture2D" uid="uid://dd45ycf1oy7ie" path="res://tree/towers/beehive/beehiveBeehive.png" id="1_o71qk"]
+[ext_resource type="Script" path="res://tree/towers/beehive/BeehiveBullet.gd" id="1_ptq0f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjkd6"]
+radius = 28.0179
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_ptq0f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(9, -6)
+texture = ExtResource("1_o71qk")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "Beehive",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "beehive",
+"only_visible": false,
+"op_exp": true,
+"player": "",
+"source": "res://tree/towers/beehive/beehive.aseprite"
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vjkd6")
