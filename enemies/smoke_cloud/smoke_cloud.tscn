@@ -12,7 +12,7 @@ radius = 12.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_40ulp"]
 radius = 18.0278
 
-[node name="smoke_cloud" type="CharacterBody2D"]
+[node name="smoke_cloud" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_6f2lt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

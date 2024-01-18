@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://blwjghhf1nrng"]
+[gd_scene load_steps=10 format=3 uid="uid://blwjghhf1nrng"]
 
 [ext_resource type="PackedScene" uid="uid://bsriofwcq48sj" path="res://tree/towers/sapling/sapling.tscn" id="1_w4eju"]
 [ext_resource type="PackedScene" uid="uid://du4c1rjta3ewr" path="res://tree/towers/thorn/thorn.tscn" id="2_ygfri"]
+[ext_resource type="PackedScene" uid="uid://fyprwrltmjsq" path="res://tree/towers/beehive/Beehive.tscn" id="3_jnjc8"]
 [ext_resource type="Texture2D" uid="uid://cp3gbwlvw3fxu" path="res://core/tilemap/tilemap.png" id="3_tlmmm"]
 [ext_resource type="Script" path="res://core/tilemap/TileMap.gd" id="4_rbi1l"]
 
@@ -9,6 +10,7 @@
 resource_name = "towers"
 scenes/1/scene = ExtResource("1_w4eju")
 scenes/2/scene = ExtResource("2_ygfri")
+scenes/3/scene = ExtResource("3_jnjc8")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mq8my"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)

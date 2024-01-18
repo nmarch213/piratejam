@@ -22,6 +22,7 @@ func _on_buy_menu_id_pressed(id):
 		match id:
 			0: place_sapling_tower(tile_click_controller.latest_cell_clicked)
 			1: place_thorn_tower(tile_click_controller.latest_cell_clicked)
+			2: place_beehive_tower(tile_click_controller.latest_cell_clicked)
 
 	
 	

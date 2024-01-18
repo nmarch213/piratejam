@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://fyprwrltmjsq"]
+[gd_scene load_steps=6 format=3 uid="uid://fyprwrltmjsq"]
 
 [ext_resource type="Texture2D" uid="uid://cn0l1ghhouhei" path="res://tree/towers/beehive/beehive.png" id="1_tlta8"]
 [ext_resource type="Script" path="res://tree/towers/beehive/Beehive.gd" id="1_wu23c"]
+[ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="3_2gyhh"]
+[ext_resource type="PackedScene" uid="uid://omkt3t2mm7vu" path="res://components/AttackComponent.tscn" id="4_b1vt6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnh2k"]
 size = Vector2(32, 30)
@@ -20,10 +22,17 @@ metadata/_aseprite_wizard_config_ = {
 "o_folder": "",
 "o_name": "",
 "only_visible": false,
-"op_exp": false,
+"op_exp": true,
 "player": "",
 "source": "res://tree/towers/beehive/beehive.aseprite"
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mnh2k")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_2gyhh")]
+position = Vector2(-17, -21)
+scale = Vector2(0.165, 0.75)
+
+[node name="AttackComponent" parent="." instance=ExtResource("4_b1vt6")]
+position = Vector2(-59, -10)

@@ -2,7 +2,6 @@ extends StaticBody2D
 class_name BaseTree
 
 @export var sunlight_per_second = 1
-@onready var attack_component: AttackComponent = $AttackComponent
 
 var sun_timer: Timer;
 
@@ -13,6 +12,7 @@ func _ready():
 	sun_timer.set_one_shot(false)
 	sun_timer.timeout.connect(_on_sun_timer_timeout)
 	add_child(sun_timer)
+	sun_timer.start()
 	_load_bullet()
 
 func _on_sun_timer_timeout():

@@ -59,6 +59,8 @@ func _setup_attack_timer():
 	timer.start()
 
 func _on_timer_timeout():
+	print(enemies_in_range.size())
+	print(enemies_in_range)
 	if enemies_in_range.size() > 0:
 		# _attack(enemies_in_range[0])
 		shoot_bullet_at_enemy(enemies_in_range[0])
