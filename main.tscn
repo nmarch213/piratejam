@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=12 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l6jnq"]
 [ext_resource type="PackedScene" uid="uid://ltmp2ee8jmru" path="res://core/camera/player_camera.tscn" id="2_5y4le"]
+[ext_resource type="PackedScene" uid="uid://ds6oq1g4eeq14" path="res://game_manager.tscn" id="2_xhkyp"]
 [ext_resource type="PackedScene" uid="uid://bkthjsnqioj06" path="res://tree/MotherTree.tscn" id="3_gu0s8"]
+[ext_resource type="Script" path="res://game_manager.gd" id="3_jfyef"]
+[ext_resource type="PackedScene" uid="uid://lrqiy6x4ei47" path="res://ui/game_over_screen/game_over_screen.tscn" id="4_qgm76"]
 [ext_resource type="PackedScene" uid="uid://blwjghhf1nrng" path="res://core/tilemap/tile_map.tscn" id="8_vvobf"]
 [ext_resource type="PackedScene" uid="uid://dtg1nbj1p5i5q" path="res://core/building/building_controller.tscn" id="10_i0iuh"]
 [ext_resource type="PackedScene" uid="uid://kjukeki4xp0u" path="res://core/spawner/spawner.tscn" id="10_rl5k3"]
@@ -11,6 +14,11 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_l6jnq")
+
+[node name="GameManager" parent="." instance=ExtResource("2_xhkyp")]
+script = ExtResource("3_jfyef")
+
+[node name="GameOverScreen" parent="GameManager" instance=ExtResource("4_qgm76")]
 
 [node name="PlayerCamera" parent="." instance=ExtResource("2_5y4le")]
 
