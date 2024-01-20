@@ -5,7 +5,6 @@ enum LAYER {
 	SPREADING_GRASS = 1,
 	TOWERS = 2,
 	GRID = 3,
-	BARRIER = 4
 }
 
 const GRASS_ATLAS_COORDS = Vector2i(0,0)

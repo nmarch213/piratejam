@@ -29,17 +29,8 @@ func _setup_astargrid():
 			var tile_pos = Vector2i(x + region_pos.x, y + region_pos.y)
 			var tile_data = tile_map.get_cell_tile_data(0, tile_pos)
 
-			if solid_on_grid(tile_pos):
+			if tile_data == null or not tile_data.get_custom_data("base"):
 				astar_grid.set_point_solid(tile_pos)
-
-func solid_on_grid(tile_pos):
-	var base_layer = tile_map.get_cell_tile_data(tile_map.LAYER.BASE, tile_pos)
-	var barrier_layer = tile_map.get_cell_tile_data(tile_map.LAYER.BARRIER, tile_pos)
-	if base_layer == null \
-	or not base_layer.get_custom_data("base") \
-	or barrier_layer != null:
-		return true
-
 
 func add_tower_to_grid(tower_pos: Vector2) -> void:
 	# this makes it so that the tower is not a walkable point
