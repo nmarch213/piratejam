@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://lrqiy6x4ei47" path="res://ui/game_over_screen/game_over_screen.tscn" id="4_qgm76"]
 [ext_resource type="PackedScene" uid="uid://blwjghhf1nrng" path="res://core/tilemap/tile_map.tscn" id="8_vvobf"]
 [ext_resource type="PackedScene" uid="uid://dtg1nbj1p5i5q" path="res://core/building/building_controller.tscn" id="10_i0iuh"]
-[ext_resource type="PackedScene" uid="uid://dwc7drm6pst8i" path="res://core/spawner/spawn_point.tscn" id="10_rl5k3"]
+[ext_resource type="PackedScene" path="res://core/spawner/spawn_point.tscn" id="10_rl5k3"]
 [ext_resource type="PackedScene" uid="uid://di3wfpwy40eir" path="res://core/building/tile_click_controller.tscn" id="11_xa3uc"]
 [ext_resource type="PackedScene" uid="uid://dthcr7jifvtx8" path="res://ui/overlay_ui.tscn" id="12_prmxn"]
 
