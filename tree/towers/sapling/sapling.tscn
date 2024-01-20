@@ -23,5 +23,3 @@ scale = Vector2(0.12, 0.5)
 
 [node name="SunTimer" type="Timer" parent="."]
 autostart = true
-
-[connection signal="timeout" from="SunTimer" to="." method="_on_sun_timer_timeout"]
