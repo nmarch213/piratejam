@@ -7,6 +7,7 @@ extends Node2D
 @onready var tile_click_controller = $"../TileClickController"
 
 var game_time: float = 0.0
+var game_over: bool = false
 const GAME_WIN_CODITION_SECONDS: float = 600.0
 
 
@@ -16,17 +17,20 @@ func _ready():
 	
 	
 func _process(delta):
-	game_time += delta
+	if !game_over:
+		game_time += delta
 	
 	if game_time >= GAME_WIN_CODITION_SECONDS:
 		show_game_won_screen()
 
 	
 func _on_mother_tree_exited():
+	game_over = true
 	end_game("Game Over\nThe mother tree died :(")
 	
 	
 func show_game_won_screen():
+	game_over = true
 	end_game("You won!\nNice job on spreading for 10,000 years!")
 	
 	
