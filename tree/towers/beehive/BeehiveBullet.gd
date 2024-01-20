@@ -3,7 +3,7 @@ class_name BeehiveBullet
 
 var timer: Timer
 var aoe_img = preload("res://tree/towers/beehive/beehiveBeehive.png")
-@export var total_ticks_of_dmg: int = 2
+@export var total_ticks_of_dmg: int = 5
 @export var pulse: float = .4
 @export var aoe_radius: float = 100.0
 @export var aoe_dmg: int = 1
@@ -25,7 +25,8 @@ func _ready():
 	self.body_exited.connect(_on_aoe_area_exited)
 
 func _physics_process(delta):
-	if not is_instance_valid(target):  
+	if not is_instance_valid(target) && !timer_started:
+		queue_free()
 		return
 	if _has_reached_target():
 		if !timer_started:
