@@ -45,9 +45,8 @@ func place_beehive_tower(cell_clicked_position: Vector2i) -> void:
 func spread_grass(cell_clicked_position: Vector2i) -> void:
 	for x in range(-1, 2):
 		for y in range(-1, 2):
+			await get_tree().create_timer(.1).timeout
 			var grass_pos = Vector2i(x, y) + cell_clicked_position
-			if not tile_map.get_cell_tile_data(tile_map.LAYER.BARRIER, grass_pos):
-				await $GrassTimer.timeout
-				tile_map.set_cell(tile_map.LAYER.BASE, grass_pos, 4, Vector2(0,0), 0)	
+			tile_map.set_cell(tile_map.LAYER.BASE, grass_pos, 4, Vector2(0,0), 0)	
 
 
