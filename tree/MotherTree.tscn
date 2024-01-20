@@ -82,7 +82,7 @@ radius = 14.0
 height = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_djvk3"]
-radius = 51.0098
+radius = 18.0278
 
 [node name="MotherTree" type="StaticBody2D" groups=["Player"]]
 collision_layer = 2
@@ -93,6 +93,7 @@ script = ExtResource("1_b78f8")
 light_mask = 2
 visibility_layer = 2
 texture_filter = 1
+position = Vector2(1, -32)
 texture = ExtResource("2_8oc7a")
 hframes = 3
 vframes = 2
