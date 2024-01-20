@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dthcr7jifvtx8"]
+[gd_scene load_steps=12 format=3 uid="uid://dthcr7jifvtx8"]
 
 [ext_resource type="Texture2D" uid="uid://dmb8njqpnwvis" path="res://assets/bubble.png" id="1_iovt6"]
 [ext_resource type="Script" path="res://Bubble.gd" id="2_5usej"]
@@ -7,10 +7,13 @@
 [ext_resource type="Script" path="res://SunlightLabel.gd" id="5_oe7h2"]
 [ext_resource type="Texture2D" uid="uid://b7voagptl20d7" path="res://assets/pause_button.png" id="6_jfonn"]
 [ext_resource type="Script" path="res://ui/PauseMenu.gd" id="7_k6h16"]
+[ext_resource type="Script" path="res://ui/GameTimerDisplay.gd" id="8_32h8o"]
 
 [sub_resource type="GDScript" id="GDScript_acig2"]
 
 [sub_resource type="GDScript" id="GDScript_d60ql"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bq5sw"]
 
 [node name="OverlayUI" type="CanvasLayer"]
 script = SubResource("GDScript_acig2")
@@ -93,5 +96,30 @@ size_flags_vertical = 2
 theme_type_variation = &"FlatButton"
 icon = ExtResource("6_jfonn")
 script = SubResource("GDScript_d60ql")
+
+[node name="GameTimerDisplay" type="Panel" parent="."]
+offset_left = 512.0
+offset_top = 24.0
+offset_right = 640.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bq5sw")
+script = ExtResource("8_32h8o")
+metadata/_edit_group_ = true
+
+[node name="MinutesDisplay" type="Label" parent="GameTimerDisplay"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 72.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+text = "00:"
+
+[node name="SecondsDisplay" type="Label" parent="GameTimerDisplay"]
+layout_mode = 0
+offset_left = 70.0
+offset_right = 112.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+text = "00"
 
 [connection signal="sunlight_text_max_changed" from="Control/SunlightLabel" to="Bubble" method="_on_sunlight_label_sunlight_text_max_changed"]

@@ -5,11 +5,17 @@ extends Node2D
 @onready var player_camera = $"../PlayerCamera"
 @onready var tile_click_controller = $"../TileClickController"
 
+var game_time: float = 0.0
+
 
 func _ready():
 	game_over_screen.hide()
 	mother_tree.tree_exited.connect(_on_mother_tree_exited)
 	
+	
+func _process(delta):
+	game_time += delta
+
 	
 func _on_mother_tree_exited():
 	player_camera.can_move_camera = false
