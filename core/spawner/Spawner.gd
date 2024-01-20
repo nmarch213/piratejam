@@ -11,7 +11,6 @@ var current_wave = 0
 var wave_strength = 0
 
 func _ready():
-	#spawn_wave_1()
 	wave_timer.start()
 
 func spawn_wave():
@@ -37,18 +36,13 @@ func spawn_enemy(enemy_type: PackedScene):
 	enemy.position = global_position
 	enemy.position.x = randfn(enemy.position.x, 10)
 	enemy.position.y = randfn(enemy.position.y, 10)
-	get_parent().add_child.call_deferred(enemy)
+	get_parent().add_child(enemy)
 
 func _on_wave_timer_timeout():
 	if current_wave % 3 == 0:
 		spawn_enemy(lava_elemental)
 	if current_wave % 8 == 0:
-		print("in increase wave strength")
 		wave_strength += 5
 		
-	print("wave strength", wave_strength)
 	spawn_wave()
-	print("current wave", current_wave)
-
-
 	current_wave += 1
