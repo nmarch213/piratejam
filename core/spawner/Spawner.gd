@@ -42,7 +42,7 @@ func _on_wave_timer_timeout():
 	if current_wave % 3 == 0:
 		spawn_enemy(lava_elemental)
 	if current_wave % 8 == 0:
-		wave_strength += 5
+		wave_strength += 3
 		
 	spawn_wave()
 	current_wave += 1
