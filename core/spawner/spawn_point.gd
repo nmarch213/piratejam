@@ -1,4 +1,5 @@
-extends Marker2D
+extends Enemy
+class_name Spawner
 
 var blaze: PackedScene = preload("res://enemies/blaze/Blaze.tscn")
 var flame: PackedScene = preload("res://enemies/flame/flame.tscn")
@@ -12,6 +13,7 @@ var wave_strength = 0
 
 func _ready():
 	wave_timer.start()
+	speed = 0
 
 func spawn_wave():
 	var blazes = randi_range(0, wave_strength) / 2

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cegrlqjfych46"]
+
+[ext_resource type="Texture2D" uid="uid://clwqgoh8gmtis" path="res://core/spawner/spawner.png" id="1_2h7en"]
+[ext_resource type="Script" path="res://core/spawner/spawn_point.gd" id="1_pjlhy"]
+[ext_resource type="Script" path="res://components/HitboxComponent.gd" id="2_1v07l"]
+[ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="3_7spt8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xt73"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ex8os"]
+radius = 18.0278
+
+[node name="spawn_point" type="CharacterBody2D"]
+script = ExtResource("1_pjlhy")
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2h7en")
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("2_1v07l")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_0xt73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ex8os")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_7spt8")]
+position = Vector2(-10, -23)
+scale = Vector2(0.105, 0.705)
+MAX_HEALTH = 200
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
