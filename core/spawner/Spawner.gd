@@ -8,20 +8,15 @@ var lava_elemental: PackedScene = preload("res://enemies/lava_elemental/lava_ele
 @onready var wave_timer: Timer = $WaveTimer;
 
 var current_wave = 0
+var wave_strength = 0
 
 func _ready():
+	#spawn_wave_1()
 	wave_timer.start()
 
-func spawn_wave_1():
-	var wave_strength = 5
-	# cloud str = 2
-	# blaze str = 2
-	# flame = 1
-	
+func spawn_wave():
 	var blazes = randi_range(0, wave_strength) / 2
-	wave_strength -= blazes*2
 	var clouds = randi_range(0, wave_strength) / 2
-	wave_strength -= clouds*2
 	var flames = wave_strength
 	
 	for a_blaze in blazes:
@@ -42,12 +37,18 @@ func spawn_enemy(enemy_type: PackedScene):
 	enemy.position = global_position
 	enemy.position.x = randfn(enemy.position.x, 10)
 	enemy.position.y = randfn(enemy.position.y, 10)
-	get_parent().add_child(enemy)
+	get_parent().add_child.call_deferred(enemy)
 
 func _on_wave_timer_timeout():
+	if current_wave % 3 == 0:
+		spawn_enemy(lava_elemental)
+	if current_wave % 8 == 0:
+		print("in increase wave strength")
+		wave_strength += 5
+		
+	print("wave strength", wave_strength)
+	spawn_wave()
+	print("current wave", current_wave)
+
+
 	current_wave += 1
-	match current_wave:
-		1:
-			spawn_enemy(lava_elemental)
-		_:
-			spawn_wave_1()

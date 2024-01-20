@@ -11,7 +11,7 @@ var astar_grid: AStarGrid2D
 var is_moving = false
 
 @export var speed = 1
-@export var damage = 10
+@export var damage = 1
 
 func _physics_process(_delta):
 	move()

@@ -7,7 +7,7 @@ position = Vector2(758, 744)
 script = ExtResource("1_urtf3")
 
 [node name="WaveTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 10.0
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.3
