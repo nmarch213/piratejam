@@ -10,3 +10,5 @@ path="res://.godot/imported/lava_elemental.aseprite-116676d7da942fc88b7e34c22aad
 source_file="res://enemies/lava_elemental/lava_elemental.aseprite"
 dest_files=["res://.godot/imported/lava_elemental.aseprite-116676d7da942fc88b7e34c22aad18b4.res"]
 
+[params]
+
