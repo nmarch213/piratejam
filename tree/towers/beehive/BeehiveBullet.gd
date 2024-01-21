@@ -10,7 +10,7 @@ var aoe_img = preload("res://tree/towers/beehive/beehiveBeehive.png")
 
 var enemies_in_aoe = []
 var reached_target = false 
-var target_position: Vector2
+var target_position: Vector2 = Vector2.ZERO
 var timer_started = false
 
 func _ready():
@@ -33,7 +33,7 @@ func _physics_process(delta):
 			timer_started = true
 			timer.start()
 		return
-	if !target_position:
+	if target_position == Vector2.ZERO:
 		target_position = target.global_position
 	if target_position:
 		var direction = (target_position - global_position).normalized()
