@@ -39,5 +39,6 @@ position = Vector2(0, 1)
 [node name="HealthComponent" parent="." instance=ExtResource("4_y2edh")]
 position = Vector2(-28, -36)
 scale = Vector2(0.275, 1)
+MAX_HEALTH = 500
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

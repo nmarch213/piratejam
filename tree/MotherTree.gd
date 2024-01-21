@@ -3,7 +3,10 @@ class_name MotherTree
 
 @onready var health_component = $HealthComponent
 @onready var animation_player = $Sprite2D/AnimationPlayer
+
 func _ready():
+	healing_wait_time = 8
+	healing_per_tick = 1
 	super._ready()
 	animation_player.play("default")
 

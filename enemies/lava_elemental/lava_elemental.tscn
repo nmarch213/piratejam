@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp2n1ekvr2vqc"]
+[gd_scene load_steps=9 format=3 uid="uid://dp2n1ekvr2vqc"]
 
 [ext_resource type="Script" path="res://enemies/lava_elemental/lava_elemental.gd" id="1_6c4fu"]
 [ext_resource type="Texture2D" uid="uid://dj74cfy320p5w" path="res://enemies/lava_elemental/lava_elemental.png" id="2_bvva6"]
 [ext_resource type="Script" path="res://components/HitboxComponent.gd" id="2_xr3vp"]
 [ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="3_k1n76"]
 [ext_resource type="Script" path="res://components/EnemyNavigationComponent.gd" id="4_7c2s3"]
+[ext_resource type="PackedScene" uid="uid://omkt3t2mm7vu" path="res://components/AttackComponent.tscn" id="6_qilxo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3h0n"]
 radius = 16.0
@@ -53,3 +54,7 @@ avoidance_layers = 3
 avoidance_mask = 3
 debug_enabled = true
 script = ExtResource("4_7c2s3")
+
+[node name="AttackComponent" parent="." instance=ExtResource("6_qilxo")]
+attack_damage = 20
+attack_range = 25
