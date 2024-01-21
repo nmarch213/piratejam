@@ -33,6 +33,7 @@ shape = SubResource("RectangleShape2D_mnh2k")
 [node name="HealthComponent" parent="." instance=ExtResource("3_2gyhh")]
 position = Vector2(-17, -21)
 scale = Vector2(0.165, 0.75)
+MAX_HEALTH = 500
 
 [node name="AttackComponent" parent="." instance=ExtResource("4_b1vt6")]
 position = Vector2(-59, -10)
