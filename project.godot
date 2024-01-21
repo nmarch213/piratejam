@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="piratejam"
+config/name="1472"
+config/version=".1"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
