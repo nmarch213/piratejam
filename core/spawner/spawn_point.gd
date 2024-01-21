@@ -1,7 +1,7 @@
 extends Enemy
 class_name Spawner
 
-var blaze: PackedScene = preload("res://enemies/blaze/Blaze.tscn")
+var blaze: PackedScene = preload("res://enemies/blaze/blaze.tscn")
 var flame: PackedScene = preload("res://enemies/flame/flame.tscn")
 var smoke_cloud: PackedScene = preload("res://enemies/smoke_cloud/smoke_cloud.tscn")
 var lava_elemental: PackedScene = preload("res://enemies/lava_elemental/lava_elemental.tscn")
