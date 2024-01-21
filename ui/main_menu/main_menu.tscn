@@ -1,0 +1,399 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkgfycxr71xb3"]
+
+[ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_1wglg"]
+[ext_resource type="FontFile" uid="uid://b54yyctt1e5qm" path="res://assets/Daydream.ttf" id="2_ehgtc"]
+
+[sub_resource type="Animation" id="Animation_2bp4f"]
+length = 5.0
+
+[sub_resource type="Animation" id="Animation_5j28k"]
+resource_name = "begin_animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../BGColor:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0705882, 0.0705882, 0.0705882, 1), Color(0.635294, 0.635294, 0.635294, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v65g8"]
+resource_name = "flavor_text_animation"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PreTitle/PreTitle1:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/1472:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0), Color(1, 0.337255, 0.0313726, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/1472:theme_override_colors/font_shadow_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/1472:theme_override_colors/font_outline_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(0.639216, 0, 0, 0), Color(0.639216, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Split/ItemList:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 6.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AfterTitle:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(6, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PreTitle/PreTitle2:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PreTitle/PreTitle3:visible_ratio")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PreTitle/PreTitle4:visible_ratio")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(3.5, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("HBoxContainer/°:theme_override_colors/font_color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(5.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 0.337255, 0.0313726, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HBoxContainer/°:theme_override_colors/font_outline_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(0.639216, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yarsu"]
+resource_name = "quit_animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../BGColor:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0705882, 0.0705882, 0.0705882, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_obxb3"]
+_data = {
+"RESET": SubResource("Animation_2bp4f"),
+"begin_animation": SubResource("Animation_5j28k"),
+"menu_display_animation": SubResource("Animation_v65g8"),
+"quit_animation": SubResource("Animation_yarsu")
+}
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_1wglg")
+
+[node name="MainMenuAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../MainMenuContainer/MarginContainer/MenuContainer")
+libraries = {
+"": SubResource("AnimationLibrary_obxb3")
+}
+
+[node name="MainMenuContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 751.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="BGColor" type="ColorRect" parent="MainMenuContainer"]
+layout_mode = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="MenuContainer" type="VBoxContainer" parent="MainMenuContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="PreTitle" type="VBoxContainer" parent="MainMenuContainer/MarginContainer/MenuContainer"]
+layout_mode = 2
+theme_override_constants/separation = -40
+
+[node name="PreTitle1" type="Label" parent="MainMenuContainer/MarginContainer/MenuContainer/PreTitle"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ehgtc")
+theme_override_font_sizes/font_size = 21
+text = "The world has burned."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="PreTitle2" type="Label" parent="MainMenuContainer/MarginContainer/MenuContainer/PreTitle"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ehgtc")
+theme_override_font_sizes/font_size = 21
+text = "You rise from the ashes."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="PreTitle3" type="Label" parent="MainMenuContainer/MarginContainer/MenuContainer/PreTitle"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ehgtc")
+theme_override_font_sizes/font_size = 21
+text = "The army of fire will give you no rest."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="PreTitle4" type="Label" parent="MainMenuContainer/MarginContainer/MenuContainer/PreTitle"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ehgtc")
+theme_override_font_sizes/font_size = 21
+text = "Spread and evolve to fight the fire."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenuContainer/MarginContainer/MenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="1472" type="Label" parent="MainMenuContainer/MarginContainer/MenuContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.639216, 0, 0, 0)
+theme_override_constants/shadow_offset_x = -15
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_ehgtc")
+theme_override_font_sizes/font_size = 63
+text = "1472"
+visible_characters = 8
+
+[node name="°" type="Label" parent="MainMenuContainer/MarginContainer/MenuContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.639216, 0, 0, 0)
+theme_override_constants/shadow_offset_x = -15
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_ehgtc")
+text = "o"
+horizontal_alignment = 1
+
+[node name="AfterTitle" type="Label" parent="MainMenuContainer/MarginContainer/MenuContainer"]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ehgtc")
+theme_override_font_sizes/font_size = 23
+text = "Can you survive the heat?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Split" type="HSplitContainer" parent="MainMenuContainer/MarginContainer/MenuContainer"]
+custom_minimum_size = Vector2(900, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ItemList" type="VBoxContainer" parent="MainMenuContainer/MarginContainer/MenuContainer/Split"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 5
+
+[node name="HowToPlayButton" type="MenuButton" parent="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList"]
+custom_minimum_size = Vector2(400, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ehgtc")
+theme_override_font_sizes/font_size = 32
+text = "How To Play"
+alignment = 0
+text_overrun_behavior = 3
+
+[node name="BeginButton" type="MenuButton" parent="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ehgtc")
+theme_override_font_sizes/font_size = 32
+text = " Begin"
+alignment = 0
+text_overrun_behavior = 3
+
+[node name="SettingsButton" type="MenuButton" parent="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ehgtc")
+theme_override_font_sizes/font_size = 32
+text = "  Settings"
+alignment = 0
+text_overrun_behavior = 3
+
+[node name="QuitButton" type="MenuButton" parent="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ehgtc")
+theme_override_font_sizes/font_size = 32
+text = "  Quit"
+alignment = 0
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="MainMenuContainer/MarginContainer/MenuContainer/Split"]
+layout_mode = 2
+
+[connection signal="animation_finished" from="MainMenuAnimation" to="." method="_on_main_menu_animation_animation_finished"]
+[connection signal="pressed" from="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList/BeginButton" to="." method="_on_begin_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList/QuitButton" to="." method="_on_quit_button_pressed"]

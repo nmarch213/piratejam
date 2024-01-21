@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 SunlightManager="*res://components/SunlightManager.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
