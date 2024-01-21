@@ -11,7 +11,7 @@ var astar_grid: AStarGrid2D
 var is_moving = false
 
 @export var speed = 1
-@export var damage = 1
+@export var mother_tree_damage = 1
 
 func _physics_process(_delta):
 	move()
@@ -31,7 +31,7 @@ func move():
 
 func damage_mother_tree() -> void:
 	if mother_tree:
-		mother_tree.health_component.take_damage(damage)
+		mother_tree.health_component.take_damage(mother_tree_damage)
 		queue_free()
 		
 func heal_full():

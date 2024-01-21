@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dwc7drm6pst8i"]
 
-[ext_resource type="Texture2D" path="res://core/spawner/spawner.png" id="1_2h7en"]
+[ext_resource type="Texture2D" uid="uid://clwqgoh8gmtis" path="res://core/spawner/spawner.png" id="1_2h7en"]
 [ext_resource type="Script" path="res://core/spawner/spawn_point.gd" id="1_pjlhy"]
 [ext_resource type="Script" path="res://components/HitboxComponent.gd" id="2_1v07l"]
 [ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="3_7spt8"]
