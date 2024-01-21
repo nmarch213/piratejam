@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://18pm78o3k5ov"]
+[gd_scene load_steps=8 format=3 uid="uid://18pm78o3k5ov"]
 
 [ext_resource type="Script" path="res://enemies/blaze/blaze.gd" id="1_ol4tq"]
 [ext_resource type="Texture2D" uid="uid://jpf5vp12pqh2" path="res://enemies/blaze/blaze.png" id="2_eyxqx"]
 [ext_resource type="PackedScene" uid="uid://g5t6470s8q6a" path="res://components/HealthComponent.tscn" id="4_cudao"]
 [ext_resource type="Script" path="res://components/HitboxComponent.gd" id="5_554xx"]
 [ext_resource type="Script" path="res://components/EnemyNavigationComponent.gd" id="5_wdioc"]
-[ext_resource type="PackedScene" uid="uid://omkt3t2mm7vu" path="res://components/AttackComponent.tscn" id="6_71q3w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_udw0i"]
 radius = 12.0
@@ -50,10 +49,6 @@ avoidance_layers = 3
 avoidance_mask = 3
 debug_enabled = true
 script = ExtResource("5_wdioc")
-
-[node name="AttackComponent" parent="." instance=ExtResource("6_71q3w")]
-attack_damage = 10
-attack_range = 30
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
