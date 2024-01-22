@@ -5,11 +5,7 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_pressed("esc"): # skip to the end of the animation
-		$MainMenuAnimation.advance(4.5)
-
-func _on_how_to_play_button_pressed():
-	pass # Replace with function body.
-	#TODO: Make the "How To Play" section visible (also todo: make these nodes)
+		$MainMenuAnimation.advance(100)
 
 func _on_quit_button_pressed():
 	$MainMenuAnimation.play("quit_animation")

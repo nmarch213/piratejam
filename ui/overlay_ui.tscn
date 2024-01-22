@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dthcr7jifvtx8"]
+[gd_scene load_steps=15 format=3 uid="uid://dthcr7jifvtx8"]
 
 [ext_resource type="Texture2D" uid="uid://dmb8njqpnwvis" path="res://assets/bubble.png" id="1_iovt6"]
 [ext_resource type="Script" path="res://Bubble.gd" id="2_5usej"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://b7voagptl20d7" path="res://assets/pause_button.png" id="6_jfonn"]
 [ext_resource type="Script" path="res://ui/PauseMenu.gd" id="7_k6h16"]
 [ext_resource type="Script" path="res://ui/GameTimerDisplay.gd" id="8_32h8o"]
+[ext_resource type="PackedScene" uid="uid://udlsuuxfy7an" path="res://ui/tutorial/tutorial.tscn" id="9_a4gds"]
+[ext_resource type="FontFile" uid="uid://b54yyctt1e5qm" path="res://assets/Daydream.ttf" id="10_kd8vb"]
+[ext_resource type="Script" path="res://ui/InstructionText.gd" id="11_sla56"]
 
 [sub_resource type="GDScript" id="GDScript_acig2"]
 
@@ -121,5 +124,20 @@ offset_right = 112.0
 offset_bottom = 42.0
 theme_override_font_sizes/font_size = 30
 text = "00"
+
+[node name="Tutorial" parent="." instance=ExtResource("9_a4gds")]
+
+[node name="InstructionText" type="Label" parent="."]
+offset_left = 234.0
+offset_top = 573.0
+offset_right = 908.0
+offset_bottom = 630.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("10_kd8vb")
+theme_override_font_sizes/font_size = 36
+text = "Build a tree to begin"
+horizontal_alignment = 1
+script = ExtResource("11_sla56")
 
 [connection signal="sunlight_text_max_changed" from="Control/SunlightLabel" to="Bubble" method="_on_sunlight_label_sunlight_text_max_changed"]

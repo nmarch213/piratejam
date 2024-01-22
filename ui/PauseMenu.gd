@@ -11,8 +11,14 @@ func _input(event):
 		toggle_pause()
 
 func toggle_pause():
-	get_tree().paused = !get_tree().paused
-	if get_tree().paused:
-		show()
-	else:
+	unpause() if get_tree().paused else pause()
+
+func pause():
+	get_tree().paused = true
+	show()
+
+func unpause():
+	var intu = $"../Tutorial".in_tutorial
+	if not intu:
+		get_tree().paused = false
 		hide()

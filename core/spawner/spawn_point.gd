@@ -12,8 +12,12 @@ var current_wave = 0
 var wave_strength = 0
 
 func _ready():
-	wave_timer.start()
 	speed = 0
+	SunlightManager.first_purchase.connect(_on_first_purchase_by_player)
+	
+func _on_first_purchase_by_player():
+	# do not start spawning until player starts playing
+	wave_timer.start()
 
 func spawn_wave():
 	var blazes = randi_range(0, wave_strength) / 2

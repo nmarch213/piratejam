@@ -1,0 +1,233 @@
+[gd_scene load_steps=10 format=3 uid="uid://udlsuuxfy7an"]
+
+[ext_resource type="Script" path="res://Tutorial.gd" id="1_a5jks"]
+[ext_resource type="Texture2D" uid="uid://dmb8njqpnwvis" path="res://assets/bubble.png" id="2_agfvl"]
+[ext_resource type="Texture2D" uid="uid://cjqefgk0cqa4i" path="res://assets/willysmug.png" id="2_t1dw8"]
+[ext_resource type="FontFile" uid="uid://b54yyctt1e5qm" path="res://assets/Daydream.ttf" id="4_1q6ed"]
+[ext_resource type="Texture2D" uid="uid://dcksiluv2whek" path="res://assets/willyworried.png" id="4_3ovga"]
+
+[sub_resource type="Animation" id="Animation_jxewp"]
+resource_name = "tutorial_1_animation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialDisplay/TutorialTexts/TutorialText1:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TutorialDisplay/EscToContinue:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_tuy4s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialDisplay/EscToContinue:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TutorialDisplay/TutorialTexts/TutorialText2:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_38lc5"]
+resource_name = "tutorial_2_animation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialDisplay/EscToContinue:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TutorialDisplay/TutorialTexts/TutorialText2:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b5qtd"]
+_data = {
+"RESET": SubResource("Animation_tuy4s"),
+"tutorial_1_animation": SubResource("Animation_jxewp"),
+"tutorial_2_animation": SubResource("Animation_38lc5")
+}
+
+[node name="Tutorial" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_a5jks")
+
+[node name="TutorialDisplay" type="Node2D" parent="."]
+visible = false
+
+[node name="TutorialBGContainer" type="HBoxContainer" parent="TutorialDisplay"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 150.0
+offset_top = 408.0
+offset_right = 1150.0
+offset_bottom = 648.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="TutorialBG" type="ColorRect" parent="TutorialDisplay/TutorialBGContainer"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+color = Color(0.705882, 0.631373, 0.509804, 1)
+
+[node name="TutorialBubble" type="Sprite2D" parent="TutorialDisplay/TutorialBGContainer/TutorialBG"]
+position = Vector2(556, 126.22)
+scale = Vector2(13.795, 6.79875)
+texture = ExtResource("2_agfvl")
+
+[node name="WillySmug" type="Sprite2D" parent="TutorialDisplay"]
+visible = false
+z_index = 10
+position = Vector2(131.875, 469.17)
+scale = Vector2(0.51738, 0.525936)
+texture = ExtResource("2_t1dw8")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": ""
+}
+
+[node name="WillyWorried" type="Sprite2D" parent="TutorialDisplay"]
+visible = false
+z_index = 10
+position = Vector2(131.875, 469.17)
+scale = Vector2(0.51738, 0.525936)
+texture = ExtResource("4_3ovga")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": ""
+}
+
+[node name="EscToContinue" type="Label" parent="TutorialDisplay"]
+visible = false
+offset_left = 882.0
+offset_top = 416.0
+offset_right = 1131.0
+offset_bottom = 439.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_1q6ed")
+text = "esc to continue..."
+
+[node name="TutorialTexts" type="Node2D" parent="TutorialDisplay"]
+
+[node name="TutorialText1" type="RichTextLabel" parent="TutorialDisplay/TutorialTexts"]
+custom_minimum_size = Vector2(100, 100)
+offset_left = 286.0
+offset_top = 412.0
+offset_right = 1138.0
+offset_bottom = 644.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_1q6ed")
+theme_override_fonts/bold_font = ExtResource("4_1q6ed")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]Willy-wisp:[/b]
+
+  Look, boys! A tree out here all by its lonesome.
+  Let's burn it before it decides to 
+[b] left click to build a maze of
+ protective trees[/b]. 
+  This should be easy!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="TutorialText2" type="RichTextLabel" parent="TutorialDisplay/TutorialTexts"]
+custom_minimum_size = Vector2(100, 100)
+offset_left = 286.0
+offset_top = 412.0
+offset_right = 1138.0
+offset_bottom = 644.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_1q6ed")
+theme_override_fonts/bold_font = ExtResource("4_1q6ed")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[b]Willy-wisp:[/b]
+
+  Drats! Looks like they know that
+  [b]trees gather sunlight[/b]
+  and [b]some plants hurt us.[/b]
+  I hope there's no [b]dangerous maze[/b] ahead"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="TutorialTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="TutorialAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b5qtd")
+}

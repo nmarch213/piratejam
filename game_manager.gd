@@ -17,7 +17,7 @@ func _ready():
 	
 	
 func _process(delta):
-	if !game_over:
+	if !game_over and SunlightManager.spent_any:
 		game_time += delta
 	
 	if game_time >= GAME_WIN_CODITION_SECONDS:

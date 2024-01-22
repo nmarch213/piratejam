@@ -312,6 +312,7 @@ theme_override_fonts/font = ExtResource("2_ehgtc")
 theme_override_font_sizes/font_size = 63
 text = "1472"
 visible_characters = 8
+visible_ratio = 2.0
 
 [node name="°" type="Label" parent="MainMenuContainer/MarginContainer/MenuContainer/HBoxContainer"]
 layout_mode = 2
@@ -354,15 +355,6 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 5
 
-[node name="HowToPlayButton" type="MenuButton" parent="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList"]
-custom_minimum_size = Vector2(400, 20)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_ehgtc")
-theme_override_font_sizes/font_size = 32
-text = "How To Play"
-alignment = 0
-text_overrun_behavior = 3
-
 [node name="BeginButton" type="MenuButton" parent="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList"]
 custom_minimum_size = Vector2(300, 20)
 layout_mode = 2
@@ -373,6 +365,7 @@ alignment = 0
 text_overrun_behavior = 3
 
 [node name="SettingsButton" type="MenuButton" parent="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList"]
+visible = false
 custom_minimum_size = Vector2(300, 20)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ehgtc")
@@ -394,6 +387,5 @@ text_overrun_behavior = 3
 layout_mode = 2
 
 [connection signal="animation_finished" from="MainMenuAnimation" to="." method="_on_main_menu_animation_animation_finished"]
-[connection signal="pressed" from="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList/BeginButton" to="." method="_on_begin_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList/QuitButton" to="." method="_on_quit_button_pressed"]
