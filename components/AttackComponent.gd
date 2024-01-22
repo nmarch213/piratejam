@@ -72,5 +72,3 @@ func shoot_bullet_at_enemy(body: Enemy):
 	bullet_shot.target = body
 	bullet_container.add_child(bullet_shot)
 
-
-
