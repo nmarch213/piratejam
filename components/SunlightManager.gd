@@ -2,11 +2,6 @@ extends Control
 
 var starting_sunlight_banked: int = 1000
 var sunlight_banked := starting_sunlight_banked
-
-func bank_sunlight(amount: int) -> void:
-	sunlight_banked += amount
-var starting_sunlight_banked = 1000
-var sunlight_banked = starting_sunlight_banked
 var spent_any = false
 
 signal first_purchase
