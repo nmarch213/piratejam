@@ -1,7 +1,6 @@
 extends BaseTree 
 class_name Beehive
 
-@onready var attack_component: AttackComponent = $AttackComponent
 @onready var bullet = preload("res://tree/towers/beehive/BeehiveBullet.tscn")
 
 func _load_bullet():
