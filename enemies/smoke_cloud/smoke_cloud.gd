@@ -13,7 +13,7 @@ func _ready():
 func _on_health_component_death():
 	var remains = ember.instantiate()
 	remains.position = global_position
-	get_parent().add_child(remains)
+	get_parent().call_deferred("add_child", remains)
 
 func move():
 	global_position = global_position.move_toward(mother_tree_coords, speed)

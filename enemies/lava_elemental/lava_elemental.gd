@@ -12,7 +12,7 @@ func _ready():
 func _on_health_component_death():
 	var remains = ember.instantiate()
 	remains.position = global_position
-	get_parent().add_child(remains)
+	get_parent().call_deferred("add_child", remains)
 
 func _on_lava_timer_timeout():
 	var lava = lava.instantiate()
