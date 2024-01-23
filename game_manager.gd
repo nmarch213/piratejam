@@ -35,6 +35,7 @@ func show_game_won_screen():
 	
 	
 func end_game(game_over_text: String):
+	SunlightManager.spent_any = false
 	player_camera.can_move_camera = false
 	player_camera.zoom = Vector2(1,1)
 	game_over_screen.position = player_camera.position
