@@ -14,9 +14,6 @@ radius = 18.0278
 [node name="spawn_point" type="CharacterBody2D"]
 script = ExtResource("1_pjlhy")
 
-[node name="WaveTimer" type="Timer" parent="."]
-wait_time = 10.0
-
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true
@@ -38,5 +35,3 @@ shape = SubResource("CircleShape2D_ex8os")
 position = Vector2(-10, -23)
 scale = Vector2(0.105, 0.705)
 MAX_HEALTH = 200
-
-[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
