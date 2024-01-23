@@ -5,8 +5,8 @@ class_name BaseTree
 @export var healing_wait_time: float = 3
 @export var healing_per_tick: int = 5
 @onready var healthComponent = $HealthComponent
-@onready var tile_map = $"../TileMap"
-var attack_component
+
+var attack_component: AttackComponent;
 
 var bank_sunlight_timer: Timer;
 var heal_self_timer: Timer;
@@ -17,10 +17,11 @@ func _ready():
 	_setup_sunlight_timer()
 	# create timer for healing mother tree
 	_setup_heal_timer()
-	_load_bullet()
-	attack_component = $AttackComponent
-	if attack_component:
+	if get_node_or_null("AttackComponent") != null:
+		attack_component = $AttackComponent
 		_setup_hover()
+		_load_bullet()
+
 
 func _setup_hover():
 	input_pickable = true
