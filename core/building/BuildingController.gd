@@ -1,9 +1,9 @@
 extends Node2D
 
 var costs = {
-	0: 50,
-	1: 200,
-	2: 300
+	0: 100,
+	1: 225,
+	2: 800
 }
 
 @onready var tile_map = $"../TileMap"
