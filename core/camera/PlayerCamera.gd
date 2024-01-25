@@ -1,9 +1,18 @@
 extends Camera2D
+@onready var tile_map: TileMap = $"../TileMap"
 
 var dragging = false
 var drag_start
 var screen_start
 var can_move_camera = true
+
+func _ready():
+	var map_limits: Rect2i = tile_map.get_used_rect()
+	var map_cellsize = tile_map.rendering_quadrant_size
+	limit_left = (map_limits.position.x * map_cellsize) + 200
+	limit_right = limit_left + 2000
+	limit_top = map_limits.position.y * map_cellsize
+	limit_bottom = limit_top + 1500
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
