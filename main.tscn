@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfhenhhamjbxb"]
+[gd_scene load_steps=14 format=3 uid="uid://dfhenhhamjbxb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l6jnq"]
 [ext_resource type="PackedScene" uid="uid://ltmp2ee8jmru" path="res://core/camera/player_camera.tscn" id="2_5y4le"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://di3wfpwy40eir" path="res://core/building/tile_click_controller.tscn" id="11_xa3uc"]
 [ext_resource type="PackedScene" uid="uid://dvxsabayneb8i" path="res://core/spawner/spawn_manager.tscn" id="12_e6mfg"]
 [ext_resource type="PackedScene" uid="uid://dthcr7jifvtx8" path="res://ui/overlay_ui.tscn" id="12_prmxn"]
+[ext_resource type="AudioStream" uid="uid://2l0fcxdbp34o" path="res://assets/InGameMusic.mp3" id="13_l4338"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_l6jnq")
@@ -49,3 +50,7 @@ active = true
 position = Vector2(824, 336)
 
 [node name="SpawnManager" parent="." instance=ExtResource("12_e6mfg")]
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_l4338")
+volume_db = -16.865

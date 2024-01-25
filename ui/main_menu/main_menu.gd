@@ -2,6 +2,7 @@ extends CanvasLayer
 
 func _ready():
 	$MainMenuAnimation.play("menu_display_animation")
+	$MainMenuMusic.play()
 
 func _process(_delta):
 	if Input.is_action_pressed("esc"): # skip to the end of the animation

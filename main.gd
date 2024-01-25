@@ -12,6 +12,7 @@ var mother_tree_global_position: Vector2 = Vector2(0, 0)
 func _ready():
 	_setup_astargrid()
 	mother_tree_global_position = mother_tree.global_position
+	$GameMusic.play()
 
 
 func _setup_astargrid():
