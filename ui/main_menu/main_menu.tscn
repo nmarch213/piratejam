@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkgfycxr71xb3"]
+[gd_scene load_steps=9 format=3 uid="uid://bkgfycxr71xb3"]
 
 [ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_1wglg"]
 [ext_resource type="FontFile" uid="uid://b54yyctt1e5qm" path="res://assets/Daydream.ttf" id="2_ehgtc"]
+[ext_resource type="AudioStream" uid="uid://fjoetq01bdue" path="res://assets/Intro_Menu.wav" id="3_kjokv"]
 
 [sub_resource type="Animation" id="Animation_2bp4f"]
 length = 5.0
@@ -385,6 +386,9 @@ text_overrun_behavior = 3
 
 [node name="TextureRect" type="TextureRect" parent="MainMenuContainer/MarginContainer/MenuContainer/Split"]
 layout_mode = 2
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kjokv")
 
 [connection signal="animation_finished" from="MainMenuAnimation" to="." method="_on_main_menu_animation_animation_finished"]
 [connection signal="pressed" from="MainMenuContainer/MarginContainer/MenuContainer/Split/ItemList/BeginButton" to="." method="_on_begin_button_pressed"]
